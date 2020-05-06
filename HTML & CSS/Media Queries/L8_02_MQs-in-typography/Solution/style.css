@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 65%;
+    margin: 2em auto;
+    background-color: #EEEEEE;
+}
+
+.site-title {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+.pic1, .pic2 {
+    float: right;
+    border: 3px solid black;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 20px 10px #ccc;
+}
+
+main {
+    clear: both;
+}
+blockquote {
+    border-left: 2px solid rgba(128, 128, 128, 0.397);
+    padding: 10px;
+    float: right;
+    width: 37%;
+    font-style: italic;
+}
+
+blockquote footer {
+    text-align: right;
+    margin: 10px;
+}
+
+.p1 {
+    width: 50%;
+    float: left;
+}
+
+.pic2 {
+    float: left;
+}
+
+.p2 {
+    clear: both;
+}

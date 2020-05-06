@@ -1,0 +1,109 @@
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+display: block;
+position: absolute;
+left: calc(50% - 250px);
+bottom: calc(50% - 350px);
+}
+
+.viewport {
+    position: relative;
+}
+
+.viewport.top {
+    height: 1000px;
+    background: rgb(27,97,158);
+    background: linear-gradient(90deg, rgba(27,97,158,1) 0%, rgba(65,201,162,1) 100%);
+}
+
+.viewport.bottom {
+    height: 1000px;
+    background: rgb(169,52,117);
+    background: linear-gradient(90deg, rgba(169,52,117,1) 29%, rgba(209,127,24,1) 89%);
+}
+
+.viewport.top .card {
+    bottom: calc(50% - 168px);
+
+}
+
+img {
+    border-radius: 8px;
+}
+
+.viewport.bottom .card {
+    bottom: calc(50% - 375px);
+}
+
+.fas, .far {
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 30px;
+}
+
+.shadow {
+    box-shadow: inset 0 0 20px 0px #000;
+    position: absolute;
+    top: 0;
+    border-radius: 8px;
+    height: calc(100% - 4px);
+    width: 100%;
+}
+
+/* .card .fas {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+} */
+/* 
+
+#first-box {
+    
+    height: 800px;
+    position: relative;
+}
+
+ {
+    
+    height:1200px;
+    position: relative;
+}
+
+.card .pic1 {
+    position: absolute;
+    top: 200px;
+    left: 700px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,.6);
+}
+
+.card .pic2 {
+    position: absolute;
+    top: 200px;
+    left: 700px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,.6);
+}
+
+#first-box > section > i {
+    color: #fff;
+    position: relative;
+    top: 500px;
+    left: 1163px;
+    font-size: 25px;
+}
+
+#second-box > section > i {
+    font-size: 40px;
+    position: relative;
+    color: white;
+    top: 895px;
+    left: 1144px;
+} */

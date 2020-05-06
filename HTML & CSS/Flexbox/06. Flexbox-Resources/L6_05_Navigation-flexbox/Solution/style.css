@@ -1,0 +1,29 @@
+body {
+    width: 90%;
+    margin: 2em auto;
+    font-size: 20px;
+}
+
+header {
+    border-bottom: 2px solid rgb(0,0,0);
+    width: 100%;
+}
+
+a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}
+
+header, 
+ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin: 10px;
+}

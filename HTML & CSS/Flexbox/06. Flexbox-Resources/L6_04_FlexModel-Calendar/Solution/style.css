@@ -1,0 +1,45 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    width: 70%;
+    margin: 1em auto;
+}
+
+.container {
+    max-width: 65vw;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+span { 
+    border: 1px solid black;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+}
+
+.week {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.workweek {
+    height: 200px;
+    width: 900px;
+}
+
+.reminder {
+    height: 400px;
+    width: 300px;
+}
+
+.weekdays {
+    width: 100px;
+    height: 200px;
+}

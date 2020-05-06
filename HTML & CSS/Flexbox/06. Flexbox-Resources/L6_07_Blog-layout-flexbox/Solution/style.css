@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    font-size: 18px;
+}
+
+img {
+    background-color: rgb(255, 255, 255);
+    display: block;
+    border: 2px solid black;
+    box-shadow: 0 0 20px 10px #ccc;
+    padding: 8px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 65%;
+}
+
+blockquote {
+    font-family: Georgia, serif;
+    font-style: italic;
+    border-left: 2px solid grey;
+    padding: 8px;
+}
+
+aside a {
+   color: rgb(0, 153, 0);
+   text-decoration: none;
+}
+
+h1,h2,h3,h4 {
+    font-family: Georgia, serif;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
+hr {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.row .p-wrapper {
+    flex: 0 1 70%;
+}
+
+main article img {
+    max-height: 270px;
+}
+
+.row blockquote, body > div > main > article:nth-child(2) > div > p {
+    flex: 0 1 44%;
+}
+
+main article .row p {
+    flex: 1;
+    padding-left: 10px;
+}
+
+main article .row img {
+    margin-right: 10px;
+}
+
+.main-aside {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+main {
+    flex: 0 1 80%;
+}
+
+aside {
+    flex: 0 1 auto;
+}
+
+blockquote footer {
+    text-align: end;
+}

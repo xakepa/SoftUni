@@ -1,0 +1,82 @@
+@media only screen and (max-width: 414px) {
+
+   header nav {
+        text-align: center;
+        display: block;
+    }
+
+    header nav h2 {
+        margin-left: 2em;
+    }
+
+    header nav ul {
+        display: block;
+        width: 100%;
+    }
+
+    .heading-and-button { 
+        position: static;
+        width: auto;  
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .heading-and-button h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .img-wrapper {
+        height: auto;
+    }
+
+    .heading-and-button button {
+        font-size: 15px;
+    }
+
+    article.intro {
+        margin-top: 3em;
+        max-width: 85%;
+        font-size: 20px;
+    }
+
+    #service-section {
+        background: #fff;
+    }
+
+    article.email-subscribe {
+        width: 75%;
+        line-height: 1.5;
+    }
+
+    #subscr {
+        margin-top: 1em;
+    }
+
+    .email-subscribe input {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    article.services {
+        margin: 0;
+        margin-bottom: 14px;
+    }
+
+    section.subscribe {
+        align-items: initial;
+        height: 65vh;
+        min-width: 300px;
+    }
+
+    .main-footer { 
+        flex-flow: row wrap;
+        line-height: 1.6;
+        height: auto;
+        min-width: 300px;
+    }
+
+    .copyright {
+        min-width: 300px;
+    }
+}

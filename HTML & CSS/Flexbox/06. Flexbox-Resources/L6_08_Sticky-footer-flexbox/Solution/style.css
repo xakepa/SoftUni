@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    background: rgb(238, 238, 238);
+    height: 100vh;
+    font-size: 20px;
+    margin: 0;
+}
+
+footer {
+    color: rgb(255, 255, 255);
+    background: rgb(102, 102, 102);
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+hr {
+    border: 2px solid black;
+    width: 100%;
+}
+
+footer p {
+    padding: 10px;
+}
+
+body main, 
+h1 {
+
+    margin: 20px;
+}
+
+.footer-box {
+    display: flex;
+    height: 100vh;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+}

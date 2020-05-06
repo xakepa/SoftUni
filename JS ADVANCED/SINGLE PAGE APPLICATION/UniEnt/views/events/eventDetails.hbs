@@ -1,0 +1,37 @@
+{{>header}}
+<div class="row event-details">
+    <div class="col-md-12 text-center overflow-hidden">
+
+        <img class="details-img" src="{{imageURL}}" />
+        <div class="my-3 p-3">
+            <h2 class="display-5">{{name}} Concert</h2>
+            <p class="infoType">Description:</p>
+            <p class="event-description">{{description}}</p>
+            <p class="infoType">Date: <small>{{dateTime}}</small></p>
+            <p class="infoType">Peope interested in: <small>{{peopleInterestedIn}}</small></p>
+            <p class="infoType">Organizer: <small>{{organizer}}</small></p>
+            {{#if isQueens}}
+            <audio style="display: none;" controls autoplay>
+                <source src="/Queen - The Show Must Go On.MP3" type="audio/mp3">
+            </audio>
+            {{/if}}
+            {{#if isRammstein}}
+            <audio controls autoplay>
+                <source style="display: none;" src="/Rammstein - Du Hast.mp3" type="audio/mp3">
+            </audio>
+            {{/if}}
+            {{#if isEminem}}
+            <audio style="display: none;" controls autoplay>
+                <source src="/Eminem - When I´m Gone.mp3" type="audio/mp3">
+            </audio>
+            {{/if}}
+        </div>
+        {{#if isCreator}}
+        <a href="#/edit/{{_id}}" class="btn btn-primary btn-lg">Edit the event</a>
+        <a href="#/close/{{_id}}" class="btn btn-danger btn-lg">Close the event</a>
+        {{else}}
+        <a href="#/join/{{_id}}" class="btn btn-info btn-lg">Join the event</a>
+        {{/if}}
+    </div>
+</div>
+{{>footer}}

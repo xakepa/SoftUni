@@ -1,0 +1,46 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(7, 0, 104);
+    text-align: center;
+  }
+
+  li {
+      float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+  }
+
+  li a:hover {
+    background-color: rgb(3, 144, 27);
+  }
+
+
+h1 {
+    margin: auto;
+    width: 50%;
+    padding: 10px; 
+}
+section {
+    margin: auto;
+    font-size: 150%;
+    width: 75%;
+    padding: 10px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: large;
+ }

@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: gray;
+}
+
+.main-article {
+    display: inline-block;
+    width: 35%;
+    margin-left: 6em;
+}
+
+button.red {
+    background: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 14px 32px;
+    margin-top: 4em;
+}
+
+img.headphones, #girl {
+    width: 100%;
+}
+
+.big {
+    width: 45%;
+    display: inline-block;
+    position: relative;
+    left: 9em;
+    top: 11em;
+}
+
+.main-section {
+    margin-bottom: 16em;
+}
+
+.info-img {
+    display: inline-block;
+}
+
+.info-art {
+    display: inline-block;
+    width: 36%;
+    position: relative;
+    bottom: 7em;
+    left: 7em;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+.info-art h2 {
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+#price {
+    font-size: 36px;
+    font-weight: 900;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+#bold {
+    font-weight: 900;
+}
+
+#com {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.e-commerce {
+    height: 400px;
+    background: rgb(87, 87, 87);
+}
+
+section.e-commerce article {
+    text-align: center;
+    padding-top: 4em;
+    color: white;
+}
+
+section.e-commerce article h2 {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 1em;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+#free {
+    font-weight: 900;
+}
+
+#read-more {
+    position: relative;
+    top: 2em;
+    right: 12em;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    color: white;
+    font-size: 36px;
+    padding-bottom: 4px;
+}
+
+section.pictures article {
+    background: rgb(218, 218, 218);
+    width: 48%;
+    display: inline-block;
+}
+
+section.pictures > article:nth-child(2) {
+    width: 50%;
+}
+
+#info-art h2 {
+    font-size: 8em;;
+    display: inline-block;
+    width: 360px;
+    margin: 0;
+    bottom: 2em;
+    left: 50px;
+}
+
+#beatsp {
+    display: inline-block;
+    font-size: 36px;
+}
+
+#redspan {
+    font-size: 36px;
+    color: red;
+    font-weight: 900;
+}
+
+footer {
+    text-align: center;
+    font-size: 30px;
+    color: gray;
+}
+
+.wrapper {
+    width: 300px;
+    padding-left: 3em;
+    display: inline-block;
+}

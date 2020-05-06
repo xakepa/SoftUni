@@ -1,0 +1,42 @@
+body {
+    background: rgb(238, 238, 238);
+}
+
+.text-transform h2 {
+    font-family: Georgia, serif;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+.pic img {
+    position: absolute;
+    border-radius: 7px;
+    left: calc(50% - 500px/2);
+    top: calc(50% - 333px/2);
+}
+
+.text-transform {
+    position: absolute;
+    left: calc(50% - 500px/2);
+    top: calc(100% - 230px);
+    border-radius: 7px;
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+}
+
+.text-transform article {
+    width: 82%;
+    height: 120px;
+    margin: 1.5em auto;
+}
+
+.text-transform button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: rgb(0, 153, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 18px;
+}

@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.418), rgba(0,0,0,0.7)), url(../image.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+.input-fields {
+    width: 100%;
+    margin-bottom: 1.5em;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    outline: none;
+    font-size: 22px;
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: white;
+    width: 380px;
+    height: 250px;
+}
+
+.button {
+    text-align: center;
+    background: #D41872;
+    color: #fff;
+    padding: 15px 50px;
+    border-radius: 40px;
+    border: none;
+}
+
+::-webkit-input-placeholder { 
+    padding-left: 2em;
+    color: grey;
+}
+
+body > div > form > input:nth-child(2) {
+    margin-top: 0.7em;
+}
+
+input {
+      font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+  }

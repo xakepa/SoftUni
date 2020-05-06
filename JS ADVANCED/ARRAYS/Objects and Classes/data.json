@@ -1,0 +1,13 @@
+{
+    "weather": "rainy",
+    "forecast": "time",
+    "vidimost": 50,
+    "drugo": [
+        3,
+        4,
+        6
+    ],
+    "neshto": {
+        "age": 20
+    }
+}

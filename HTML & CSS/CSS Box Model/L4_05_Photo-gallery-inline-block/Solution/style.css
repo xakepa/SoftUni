@@ -1,0 +1,27 @@
+.gallery li {
+    display: inline-block;
+    text-decoration: none;
+    border: 0.4rem solid black;
+    padding: 10px;
+    margin: 0.5em;
+    vertical-align: middle;
+    width: 28%;
+}
+
+.gallery li img {
+    width: 100%;
+}
+
+html {
+    background-color: #EEEEEE;
+}
+
+main {
+    padding: 1em 3em;
+    width: 60%;
+    margin: 3em auto;
+}
+
+body {
+    margin: 0;
+}

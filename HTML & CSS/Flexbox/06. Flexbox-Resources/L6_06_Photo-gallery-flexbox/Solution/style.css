@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body, ul, li {
+    display: flex;   
+}
+
+body {
+    background-color: #EEEEEE;
+    justify-content: center;
+}
+
+ul {
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+li {
+    margin: 20px;
+    border: 5px solid black;
+    height: 500px;
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px 15px rgba(20, 8, 8, 0.68);
+}
+
+.gallery {
+    max-width: 60%;
+}
+
+img {
+   
+}

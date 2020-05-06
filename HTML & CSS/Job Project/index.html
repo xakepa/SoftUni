@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/dd48506b61.js"></script>
+    <script src="./slideShow.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Movies Online</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="navigation">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About Us</a></li>
+                <div class="dropdown">
+                    <button class="dropbtn">Pages</button>
+                    <div class="dropdown-content">
+                        <a href="/">Pricing</a>
+                        <a href="/">FAQs</a>
+                        <a href="/">Our team</a>
+                        <a href="/">History</a>
+                        <a href="/">Testimonials</a>
+                        <a href="/">Site map</a>
+                        <a href="/">Forum</a>
+                    </div>
+                    <p><i class="arrow down"></i></p>
+                </div>
+                <li><a href="/">Blog</a></li>
+                <li><a href="/">Gallery</a></li>
+                <li><a href="/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="heading">
+            <h1 id="title"><span id="color-letter">M</span>OVIES ONLINE</h1>
+            <input id="search" type="text"> <button id="s-button"><i class="fa fa-search"></i></button>
+        </div>
+
+        <section class="slideshow">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade first">
+                    <img src="./images/slider/beautiful-creatures-krasotata-na-vtorostepennite-roli.jpg" width="100%"
+                        height="542px">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="./images/slider/sweney.jpg" width="100%" height="542px">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/slider/gravity.jpg" width="100%" height="542px">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/slider/varkolakat-the-wolverine.jpg" width="100%" height="542px">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/slider/parvi-oficialen-poster-i-informaciia-za-siujeta-na-star-trek-into-darkness.jpg"
+                        width="100%" height="542px">
+
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/slider/the-day-after-tomorrow.jpg" width="100%" height="542px">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </section>
+
+        <section class="grid-movies">
+            <article class="movies">
+                <div class="background">
+                    <h2>TRANSFORMERS</h2>
+                    <h3>FANTASY</h3>
+                </div><img src="./images/grid/transformers.png" alt="transformers">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>BLACK ROCK</h2>
+                    <h3>DRAMA</h3>
+                </div><img src="./images/grid/black_rock.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>DRAGON LORE</h2>
+                    <h3>HISTORICAL</h3>
+                </div><img src="./images/grid/shadowcabal.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>SAFE HAVEN</h2>
+                    <h3>THRILLER</h3>
+                </div><img src="./images/grid/Safe_Haven_Poster.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>OLYMPUS</h2>
+                    <h3>THRILLER</h3>
+                </div><img src="./images/grid/olympus.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>THE NUMBERS STATION</h2>
+                    <h3>THRILLER</h3>
+                </div><img src="./images/grid/numstation.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>IRON MAN</h2>
+                    <h3>FANTASY</h3>
+                </div><img src="./images/grid/ironman.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>THE HUNTSMAN</h2>
+                    <h3>ACTION</h3>
+                </div><img src="./images/grid/huntsman.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>THE HUNTSMAN</h2>
+                    <h3>THRILLER</h3>
+                </div><img src="./images/grid/huntsman.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>OBLIVION</h2>
+                    <h3>FANTASY</h3>
+                </div><img src="./images/grid/oblivion-poster-3.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>ELYSIUM</h2>
+                    <h3>FANTASY</h3>
+                </div><img src="./images/grid/elysium.jpg" alt="">
+            </article>
+            <article class="movies">
+                <div class="background">
+                    <h2>THE JUNGLEBOOK</h2>
+                    <h3>FANTASY</h3>
+                </div><img src="./images/grid/junglebook.jpg" alt="">
+            </article>
+        </section>
+
+        <section class="best-movies">
+            <h2>BEST MOVIES ONLINE FOR FREE</h2>
+            <h3>Most Popular Movies - Watch All Movies Online</h3>
+
+            <article class="best"><img src="./images/best/brokencity.jpg" alt="">
+                <h2>Action</h2>
+                <button class="bestm-button"><a href="https://www.youtube.com/watch?v=Q3HgYu1atOo">Watch
+                        Online</a></button>
+            </article>
+            <article class="best"><img src="./images/best/lessmiserables.jpg" alt="">
+                <h2>Adventure</h2>
+                <button class="bestm-button"><a href="https://www.youtube.com/watch?v=YmvHzCLP6ug">Watch
+                        Online</a></button>
+            </article>
+            <article class="best"><img src="./images/best/intodarkness.jpg" alt="">
+                <h2>Comedy</h2>
+                <button class="bestm-button"><a href="https://www.youtube.com/watch?v=QAEkuVgt6Aw">Watch
+                        Online</a></button>
+            </article>
+            <article class="best"><img src="./images/best/worldwarz.jpg" alt="">
+                <h2>Drama</h2>
+                <button class="bestm-button"><a href="https://www.youtube.com/watch?v=Md6Dvxdr0AQ">Watch
+                        Online</a></button>
+            </article>
+        </section>
+
+        <h2 id="latest">LATEST MOVIES</h2>
+        <section class="latest-movies">
+
+            <div class="left-side">
+
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/hobit.jpg" alt="">
+                        <span class="movies-titles">The Hobbit</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/tale of love.jpg" alt="">
+                        <span class="movies-titles">A Tale of Love...</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/the-impossible.jpg" alt="">
+                        <span class="movies-titles">The Impossible</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/avatar.jpg" alt="">
+                        <span class="movies-titles">Avatar</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/Alice-In-Wonderland-Theatrical-Poster.jpg"
+                            alt="">
+                        <span class="movies-titles">Alice in Wonderland</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/HAUNTED.jpg" alt="">
+                        <span class="movies-titles">333 Haunted</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/spectre 007.jpg" alt="">
+                        <span class="movies-titles">007 Spectre</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/me before you.jpg" alt="">
+                        <span class="movies-titles">Me Before You</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/mothers-day.jpg" alt="">
+                        <span class="movies-titles">Mother's Day</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/Help_poster.jpg" alt="">
+                        <span class="movies-titles">The Help</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/hunger-games-mockingjay.jpg" alt="">
+                        <span class="movies-titles">The Hunger Games</span>
+                </div>
+                <div class="latest-movies-section">
+                    <article class="best latest"><img src="./images/latest/everest.jpg" alt="">
+                        <span class="movies-titles">Everest</span>
+                </div>
+
+            </div>
+            <aside>
+
+                <article class="popular">
+                    <div class="speech-bubble">
+                        <span>POPULAR FILMS</span>
+                    </div>
+                    <ol class="popular-movies">
+                        <li>Trolls 2016</li>
+                        <li>Romance (1999)</li>
+                        <li>Doctor Strange (2016)</li>
+                        <li>Keeping Up with Joneses (2016)</li>
+                        <li>The BFG (2016)</li>
+                        <li>The Accountant</li>
+                        <li>Boo! A Madea Halloween</li>
+                    </ol>
+                </article>
+
+                <article class="news">
+                    <div class="speech-bubble">
+                        <span>NEWS</span>
+                    </div>
+                    <div class="news-title">
+                        <h3>Adventure Movies:
+                            Action Mixed in
+                            Beautiful Locales
+                        </h3>
+                    </div>
+                    <p>Adventures movies suck a viewer into the movie and keep him glued to the edge of the seat until
+                        the end in..</p>
+                    <span class="date">November 21, 2016</span>
+                    <hr>
+
+                    <div class="news-title">
+                        <h3>The Wonder World of Kid' Movies
+                        </h3>
+                    </div>
+                    <p>Online streaming movies are doing a great job in the development of kids by giving the
+                        opportunity to watch various...</p>
+                    <span class="date">November 21, 2016</span>
+                </article>
+            </aside>
+
+        </section>
+    </main>
+    <footer>
+        <p>movies online &copy; 2016 All Rights Reserved | Privacy Policy</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    flex-flow: column wrap;
+    width: 35%;
+    border: 1px solid grey;
+}
+
+.login {
+    border: 1px solid grey;
+    flex: 0 1 auto;
+}

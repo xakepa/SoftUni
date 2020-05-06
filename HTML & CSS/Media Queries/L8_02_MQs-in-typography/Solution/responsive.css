@@ -1,0 +1,59 @@
+@media screen and (max-width: 499px) {
+ 
+    .site-title {
+        margin: 0;
+    }
+
+    blockquote {
+     
+        float: left;
+        width: 80%;
+    }
+
+    .p1 {
+        width: 100%;
+    }
+    
+    body {
+        width: 85%;
+        margin: 1em auto;
+        font-size: 12px;
+    }
+
+    .pic1, .pic2 {
+        float: unset;
+        display: block;
+        margin-bottom: 1.2em;
+       
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    body {
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    body {
+        font-size: 23px;
+    }
+}

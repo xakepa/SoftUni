@@ -1,0 +1,56 @@
+<!-- Dashboard -->
+{{>header}}
+<table style="margin: 0 auto; margin-top:5%; margin-bottom: 5%; width: 95%;" class="table table-hover">
+    <thead>
+        <tr class="bg-warning">
+            <th>
+                #
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each offers}}
+        <tr>
+            <td class="">#</td>
+            <td class="">{{product}}</td>
+            <td class="description">{{description}}</td>
+            <td class="">{{price}} BGN</td>
+            <td>
+                <a href='#/details/{{_id}}' class="btn-primary btn">Order details</a>
+            </td>
+            <td>
+                {{#if isCreator}}
+                <a href='#/delete/{{_id}}' class="btn-danger btn">Delete </a>
+                <a href='#/edit/{{_id}}' class="btn-info btn">Edit</a>
+                {{/if}}
+                <!--BONUS (Not-Required)--><a href="" class="btn-warning btn">Buy</a>
+                <!--BONUS (Not-Required)-->
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            <td style="text-align: center;" colspan="6">
+                <h2 style="font-style: italic;">There are no offers, we are very sorry...</h2>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
+{{>footer}}
+<!-- /.Dashboard -->

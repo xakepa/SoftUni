@@ -1,0 +1,24 @@
+.flag {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+body {
+    margin: 0;
+}
+
+span {
+    height: 323px;
+}
+
+.white {
+    background: white;
+}
+
+.green {
+ background: green;
+}
+
+.red {
+    background: red;
+}

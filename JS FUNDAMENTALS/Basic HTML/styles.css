@@ -1,0 +1,40 @@
+div{
+    display: inline-block;
+    width: 30%;
+    margin-left:2%;
+    vertical-align: top;
+}
+
+span{
+    font-weight: bold;
+}
+
+h1{
+    text-align: center;
+}
+
+li {
+    border: 3px solid yellow;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+span {
+    border: 3px dotted darkcyan;
+}
+
+table, th, td {
+   border: 3px solid yellow;
+}
+
+p {
+    max-width: 400px;
+    color: darkviolet;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+}

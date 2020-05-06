@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    text-align: center;
+    
+}
+
+div {
+    font-family: roboto, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    padding: 20px;
+    border: 3px solid rgb(14, 14, 2);
+    margin: 20px;
+    border-radius: 50px;
+}
+
+#green:hover {
+    background: lime;
+    color: black;
+}
+
+#blue:hover {
+    background: rgba(0, 0, 255, 0.342);
+    color: black;
+}
+
+#red:hover {
+    background: rgba(255, 0, 0, 0.5);
+    color: black;
+}
+
+#purple:hover {
+    background: rgb(240, 108, 240);
+    color: black;
+}
+
+#orange:hover {
+    background: rgba(255, 230, 0, 0.911);
+    color: black;
+}
+
+#green {
+    background: green;
+}
+
+#blue {
+    background: blue;
+}
+
+#red {
+    background: red;
+}
+
+#purple {
+    background: purple;
+}
+
+#orange {
+    background: orange;
+}
