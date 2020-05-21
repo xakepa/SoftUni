@@ -1,0 +1,14 @@
+{
+  "name": "cat-shelter",
+  "version": "1.0.0",
+  "description": "Podslon za kotki",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Plamen Ivanov",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
