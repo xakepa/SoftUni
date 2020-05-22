@@ -1,18 +1,21 @@
 const url = require('url');
 const fs = require('fs');
+const path = require('path');
 
 function getContentType(url) {
 
-    if (url.endsWith('css')) {
-        return 'text/css';
-    } else if (url.endsWith('html')) {
-        return 'text/html';
-    } else if (url.endsWith('png')) {
-        return 'image/png';
-    } else if (url.endsWith('jpg')) {
-        return 'image/jpeg';
+    const extensionMap = {
+        '.css': 'text/css',
+        '.html': 'text/html',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg'
     }
-    else {
+
+    const ext = extensionMap[path.extname(url)];
+
+    if (ext) {
+        return ext;
+    } else {
         return true;
     }
 }
@@ -32,8 +35,6 @@ module.exports = function (req, res) {
                 res.end();
                 return;
             }
-
-            console.log(pathname);
 
             res.writeHead('200', {
                 'Content-type': getContentType(pathname)
