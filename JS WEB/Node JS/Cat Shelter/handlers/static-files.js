@@ -41,7 +41,6 @@ module.exports = function (req, res) {
             })
             res.write(data);
             res.end();
-        }
-        )
+        })
     }
 }
