@@ -19,3 +19,17 @@ module.exports = (filePath, res) => {
         res.end();
     })
 }
+
+   // alternative with Streams 
+
+        // const index = fs.createReadStream(filePath);
+
+        // index.on('data', (data) => {
+        //     res.write(data);
+        // });
+
+        // index.on('end', () => res.end());
+
+        // index.on('error', (err) => {
+        //     console.log(err);
+        // });
