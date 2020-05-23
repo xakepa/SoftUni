@@ -16,11 +16,6 @@ module.exports = (req, res) => {
 
         readHtml(filePath, res);
 
-    } else if (pathname === '/cats/add-cat' && req.method === 'GET') {
-        filePath = path.normalize(path.join(__dirname, '../views/addCat.html'));
-
-        readHtml(filePath, res);
-
     } else {
         return true;
     }
