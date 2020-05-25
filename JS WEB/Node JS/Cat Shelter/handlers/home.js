@@ -21,7 +21,7 @@ module.exports = (req, res) => {
 
             const modifiedCats = cats.map(cat => `
             <li>
-            <img src="${path.join('./content/images' + cat.image)}" alt="${cat.name}">
+            <img src="${'./content/images/' + cat.image}" alt="${cat.name}">
                     <h3>${cat.name}</h3>
                     <p><span>Breed: </span>${cat.breed}</p>
                     <p><span>Description: </span>${cat.description}</p>

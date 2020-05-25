@@ -1,6 +1,7 @@
 const fs = require('fs');
 module.exports = (filePath, res) => {
     fs.readFile(filePath, (err, data) => {
+
         if (err) {
             console.log(err);
 
