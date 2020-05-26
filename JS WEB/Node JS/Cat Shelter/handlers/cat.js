@@ -4,9 +4,8 @@ const path = require('path');
 const qs = require('querystring');
 const breeds = require('../database/breeds.json');
 const cats = require('../database/cats.json');
-const readHtml = require('./readHtml');
+const renderHtml = require('./renderHtml');
 const forimidable = require('formidable');
-const { callbackify } = require('util');
 
 
 module.exports = ((req, res) => {
@@ -70,7 +69,7 @@ module.exports = ((req, res) => {
     } else if (pathname === '/cats/add-breed' && req.method === 'GET') {
         filePath = path.normalize(path.join(__dirname, '../views/addBreed.html'));
 
-        readHtml(filePath, res);
+        renderHtml(filePath, res);
 
     } else if (pathname === '/cats/add-breed' && req.method === 'POST') {
         let formData = '';

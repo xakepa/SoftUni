@@ -4,7 +4,6 @@ const fs = require('fs');
 const cats = require('../database/cats.json');
 const breeds = require('../database/breeds.json');
 const http = require('http');
-const readHtml = require('./readHtml');
 
 module.exports = (req, res) => {
     const pathname = url.parse(req.url).pathname;
