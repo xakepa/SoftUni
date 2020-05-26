@@ -4,9 +4,9 @@ const path = require('path');
 const qs = require('querystring');
 const breeds = require('../database/breeds.json');
 const cats = require('../database/cats.json');
-const readHtml = require('./readHtml');
+const renderHtml = require('./renderHtml');
+const forimidable = require('formidable');
 
-// HANDLER NOT WORKING...
 
 module.exports = ((req, res) => {
     const pathname = url.parse(req.url).pathname;
@@ -22,7 +22,7 @@ module.exports = ((req, res) => {
 
         index.on('data', (data) => {
             const catBreedPlaceholder = breeds.map(breed => `<option value="${breed}">${breed}</option>`);
-            const modifiedData = data.toString().replace('{{catBreeds}}', catBreedPlaceholder);
+            const modifiedData = String(data).replace('{{catBreeds}}', catBreedPlaceholder);
             res.write(modifiedData);
         });
 
@@ -33,10 +33,43 @@ module.exports = ((req, res) => {
         });
 
 
+    } else if (pathname === '/cats/add-cat' && req.method === 'POST') {
+
+        const form = new forimidable.IncomingForm();
+
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                throw err;
+            }
+            const oldPath = files.upload.path;
+            const newPath = path.normalize(path.join('./content/images', files.upload.name));
+
+            fs.rename(oldPath, newPath, err => {
+                if (err) {
+                    throw err;
+                }
+                console.log('Files was uploaded successfully');
+            })
+
+            fs.readFile('./database/cats.json', 'utf-8', (err, data) => {
+                if (err) {
+                    throw err;
+                }
+
+                const allCats = JSON.parse(data);
+                allCats.push({ id: cats.length = 1, ...fields, image: files.upload.name });
+                const json = JSON.stringify(allCats);
+                fs.writeFile('./database/cats.json', json, () => {
+                    res.writeHead(301, { location: '/' });
+                    res.end();
+                });
+            });
+        });
+
     } else if (pathname === '/cats/add-breed' && req.method === 'GET') {
         filePath = path.normalize(path.join(__dirname, '../views/addBreed.html'));
 
-        readHtml(filePath, res);
+        renderHtml(filePath, res);
 
     } else if (pathname === '/cats/add-breed' && req.method === 'POST') {
         let formData = '';

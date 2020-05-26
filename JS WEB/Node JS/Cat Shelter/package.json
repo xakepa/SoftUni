@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "formidable": "^1.2.2"
   }
 }
