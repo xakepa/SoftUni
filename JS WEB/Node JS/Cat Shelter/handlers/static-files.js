@@ -29,24 +29,8 @@ module.exports = function (req, res) {
     if (pathname.startsWith('/content') && req.method === 'GET') {
 
         if (pathname.endsWith('jpg') || pathname.endsWith('jpeg') || pathname.endsWith('png') || pathname.endsWith('ico') && req.method === 'GET') {
-            fs.readFile(`./${pathname}`, (err, data) => {
-                if (err) {
-                    console.log(err);
-                    res.writeHead('404', {
-                        'Content-type': 'text/plain'
-                    })
+            readHtml(`./${pathname}`, res);
 
-                    res.write('Page not found !');
-                    res.end();
-                    return;
-                }
-
-                res.writeHead('200', {
-                    'Content-type': getContentType(pathname)
-                })
-                res.write(data);
-                res.end();
-            })
         } else {
             fs.readFile(`./${pathname}`, 'utf8', (err, data) => {
                 if (err) {
