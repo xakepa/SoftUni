@@ -6,6 +6,7 @@ const breeds = require('../database/breeds.json');
 const cats = require('../database/cats.json');
 const renderHtml = require('./renderHtml');
 const forimidable = require('formidable');
+const { cursorTo } = require('readline');
 
 
 module.exports = ((req, res) => {
@@ -57,7 +58,7 @@ module.exports = ((req, res) => {
                 }
 
                 const allCats = JSON.parse(data);
-                allCats.push({ id: cats.length = 1, ...fields, image: files.upload.name });
+                allCats.push({ id: cats.length + 1, ...fields, image: files.upload.name });
                 const json = JSON.stringify(allCats);
                 fs.writeFile('./database/cats.json', json, () => {
                     res.writeHead(301, { location: '/' });
@@ -95,8 +96,20 @@ module.exports = ((req, res) => {
                 res.end()
             });
         });
-    }
-    else {
+    } else if (pathname.includes('/cats-edit') && req.method === 'GET') {
+        filePath = path.normalize(path.join(__dirname, '../views/editCat.html'));
+
+        renderHtml(filePath, res)
+
+        // let modifiedData = String(data).replace('{{id}}', catId);
+        // modifiedData = modifiedData.replace('{{name}}', currentCat.name);
+        // modifiedData = modifiedData.replace('{{description}}', currentCat.description);
+
+        // const breedsOption = breeds.map(b => `<option value="${b}">${b}</option>`);
+        // modifiedData = modifiedData.replace('{{catBreeds}}', breedsOption.join('/'));
+
+
+    } else {
         return true;
     }
 })
