@@ -30,8 +30,6 @@ module.exports = class Cube {
                 if (err) {
                     throw err;
                 }
-
-
                 console.log('New cube is successfully stored');
             })
         })
