@@ -1,12 +1,12 @@
 const uniqid = require('uniqid');
 const fs = require('fs');
 
-class Cube {
+module.exports = class Cube {
     constructor(name, description, imageUrl, difficultyLevel) {
         this.id = uniqid();
         this.name = name || 'No name';
         this.description = description || 'No Description';
-        this.imageUrl = imageUrl || 'No image';
+        this.imageUrl = imageUrl || 'https://sciences.ucf.edu/psychology/wp-content/uploads/sites/63/2019/09/No-Image-Available.png';
         this.difficultyLevel = difficultyLevel || 1;
     }
 
@@ -35,8 +35,3 @@ class Cube {
         })
     }
 }
-
-module.exports = { Cube };
-
-const cubche = new Cube('obiknoven', 'NA', 'nqma-snimka', 2);
-cubche.saveCube()

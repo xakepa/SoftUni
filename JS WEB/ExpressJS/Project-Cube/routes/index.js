@@ -6,7 +6,7 @@ const router = Router();
 router.get('/', (req, res) => {
     res.render('index', {
         title: 'Cube Workshop',
-        cubes: readCube()
+        cubes: readCube
     });
 })
 

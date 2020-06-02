@@ -1,7 +1,7 @@
 const uniqid = require('uniqid');
 const fs = require('fs');
 
-module.exports = class Cube {
+class Cube {
     constructor(name, description, imageUrl, difficultyLevel) {
         this.id = uniqid();
         this.name = name || 'No Name';
@@ -35,3 +35,6 @@ module.exports = class Cube {
         })
     }
 }
+
+const cube = new Cube('name', 'description', 'imageUrl', 'difficultyLevel');
+cube.saveCube();
