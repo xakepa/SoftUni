@@ -111,6 +111,15 @@ button:hover {
     cursor: pointer;
 }
 
+a.btn.btn-del {
+    background-color: red;
+    display: inline;
+}
+
+div.btns {
+    display: flex;
+}
+
 a {
     text-decoration: underline;
     color: white;
