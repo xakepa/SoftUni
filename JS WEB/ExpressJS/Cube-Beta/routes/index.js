@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const readCubes = require('../controllers/getCubes');
+const fs = require('fs');
 const Cube = require('../models/cube');
+// const delCube = require('../controllers/deleteCube');
 
 router.get('/', (req, res) => {
 
@@ -40,6 +42,25 @@ router.get('/details/:id', (req, res) => {
     res.render('details', {
         ...cube
     });
+})
+
+router.get('/delete/:id', (req, res) => {
+    const cubes = readCubes();
+    const id = req.params.id;
+
+    cubes.forEach((cube, i) => {
+        if (cube.id === id) {
+            cubes.splice(i, 1);
+        }
+    });
+
+    fs.writeFile('./config/database.json', JSON.stringify(cubes), err => {
+        if (err) {
+            throw err;
+        }
+        console.log('The file has been deleted');
+    })
+    res.redirect(301, '/');
 })
 
 // router.all('*', (req, res) => {
