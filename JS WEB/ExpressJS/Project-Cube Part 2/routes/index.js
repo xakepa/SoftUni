@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const readCubes = require('../controllers/getCubes');
 const fs = require('fs');
 const Cube = require('../models/cube');
-// const delCube = require('../controllers/deleteCube');
 
-router.get('/', (req, res) => {
+
+router.get('/', async (req, res) => {
+
+    const cubes = await Cube.find().lean();
 
     res.render('index', {
-        cubes: readCubes
+        cubes
     })
 })
 
@@ -28,8 +29,8 @@ router.post('/create', (req, res) => {
         difficultyLevel
     } = req.body
 
-    const cube = new Cube(name, description, imageUrl, difficultyLevel);
-    cube.saveCube();
+    const cube = new Cube({ name, description, imageUrl, difficultyLevel });
+    cube.save()
 
     res.redirect(301, '/');
 })
@@ -37,15 +38,23 @@ router.post('/create', (req, res) => {
 router.get('/details/:id', (req, res) => {
 
     const id = req.params.id;
-    const cube = readCubes().find(c => c.id === id);
 
-    res.render('details', {
-        ...cube
+    Cube.findById(id, (err, cube) => {
+        if (err) {
+            console.log(err);
+        }
+
+        res.render('details', {
+            name: cube.name,
+            description: cube.description,
+            imageUrl: cube.imageUrl,
+            difficultyLevel: cube.difficultyLevel
+        });
     });
 })
 
 router.get('/delete/:id', (req, res) => {
-    const cubes = readCubes();
+    const cubes = readAllCubes();
     const id = req.params.id;
 
     cubes.forEach((cube, i) => {
@@ -63,8 +72,8 @@ router.get('/delete/:id', (req, res) => {
     res.redirect(301, '/');
 })
 
-// router.all('*', (req, res) => {
-//     res.render('404');
-// })
+router.all('*', (req, res) => {
+    res.render('404');
+})
 
 module.exports = router;
