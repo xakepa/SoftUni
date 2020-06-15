@@ -84,18 +84,18 @@ router.get('/attach/accessory/:id', async (req, res) => {
     const accessories = await Accessory.find().lean();
 
     res.render('attachAccessory', {
-
         accessories,
         cube
     })
 })
 
 router.post('/attach/accessory/:id', async (req, res) => {
-    const { accesory } = req.body;
 
-    const accessories = await Accessory.find().lean();
+    const { accessory } = req.body
+
     await Cube.findByIdAndUpdate(req.params.id, {
-        accessories: [accesory.id]
+        $addToSet:
+            { accessories: [accessory] }
     })
 
 

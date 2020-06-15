@@ -17,6 +17,8 @@ mongoose.connect(process.env.DB_URL, {
     console.log('Database is connected successfully !');
 });
 
+mongoose.set('useFindAndModify', false);
+
 require('./config/express')(app);
 
 app.use(router)
