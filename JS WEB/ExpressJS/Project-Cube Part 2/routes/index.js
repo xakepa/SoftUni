@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
 const Cube = require('../models/cube');
-
+const Accessory = require('../models/accessory');
+const { getCube } = require('../controllers/cubeController');
 
 router.get('/', async (req, res) => {
 
@@ -30,11 +30,35 @@ router.post('/create', (req, res) => {
     } = req.body
 
     const cube = new Cube({ name, description, imageUrl, difficultyLevel });
-    cube.save()
-
-    res.redirect(301, '/');
+    cube.save(err => {
+        if (err) {
+            console.log(err);
+            return res.render('create');
+        }
+        res.redirect(302, '/');
+    });
 })
 
+router.get('/create/accessory', (req, res) => {
+    res.render('createAccessory');
+})
+
+router.post('/create/accessory', (req, res) => {
+    const {
+        name,
+        description,
+        imageUrl,
+    } = req.body
+
+    const accessory = new Accessory({
+        name,
+        description,
+        imageUrl,
+    });
+
+    accessory.save();
+    res.redirect(302, '/');
+})
 router.get('/details/:id', (req, res) => {
 
     const id = req.params.id;
@@ -45,6 +69,7 @@ router.get('/details/:id', (req, res) => {
         }
 
         res.render('details', {
+            _id: cube.id,
             name: cube.name,
             description: cube.description,
             imageUrl: cube.imageUrl,
@@ -53,21 +78,38 @@ router.get('/details/:id', (req, res) => {
     });
 })
 
+router.get('/attach/accessory/:id', async (req, res) => {
+
+    const cube = await getCube(req.params.id);
+    const accessories = await Accessory.find().lean();
+
+    res.render('attachAccessory', {
+
+        accessories,
+        cube
+    })
+})
+
+router.post('/attach/accessory/:id', async (req, res) => {
+    const { accesory } = req.body;
+
+    const accessories = await Accessory.find().lean();
+    await Cube.findByIdAndUpdate(req.params.id, {
+        accessories: [accesory.id]
+    })
+
+
+    res.redirect(302, `/details/${req.params.id}`)
+})
+
 router.get('/delete/:id', (req, res) => {
-    const cubes = readAllCubes();
     const id = req.params.id;
+    console.log(id);
 
-    cubes.forEach((cube, i) => {
-        if (cube.id === id) {
-            cubes.splice(i, 1);
-        }
-    });
-
-    fs.writeFile('./config/database.json', JSON.stringify(cubes), err => {
+    Cube.findByIdAndDelete(id, err => {
         if (err) {
-            throw err;
+            console.log(err);
         }
-        console.log('The file has been deleted');
     })
     res.redirect(301, '/');
 })
@@ -75,5 +117,6 @@ router.get('/delete/:id', (req, res) => {
 router.all('*', (req, res) => {
     res.render('404');
 })
+
 
 module.exports = router;

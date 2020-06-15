@@ -205,6 +205,19 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
+.accessories .accessory{
+    display: inline-block;
+    background-color: #f3f3f2;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+}
+
+.accessories, .italic{
+    text-align: center;
+    font-style: italic;
+}
+
 div.form {
     border-radius: 5px;
     padding: 20px;
