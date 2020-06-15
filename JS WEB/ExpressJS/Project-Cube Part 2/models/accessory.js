@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const AccessorySchema = new mongoose.Schema({
     Id: {
-        type: ObjectId
+        type: mongoose.Types.ObjectId
     },
     name: {
         type: String,
