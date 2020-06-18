@@ -25,3 +25,4 @@ const AccessorySchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Accessories', AccessorySchema)
+

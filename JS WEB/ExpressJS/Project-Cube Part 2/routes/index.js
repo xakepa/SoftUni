@@ -59,33 +59,34 @@ router.post('/create/accessory', (req, res) => {
     accessory.save();
     res.redirect(302, '/');
 })
-router.get('/details/:id', (req, res) => {
+router.get('/details/:id', async (req, res) => {
 
-    const id = req.params.id;
 
-    Cube.findById(id, (err, cube) => {
-        if (err) {
-            console.log(err);
-        }
+    const cubeWithAccs = await Cube.findById(req.params.id)
+        .populate('accessories').lean();
 
-        res.render('details', {
-            _id: cube.id,
-            name: cube.name,
-            description: cube.description,
-            imageUrl: cube.imageUrl,
-            difficultyLevel: cube.difficultyLevel
-        });
+    res.render('details', {
+        ...cubeWithAccs,
+        isEmpty: cubeWithAccs.accessories.length === 0
     });
-})
+});
+
 
 router.get('/attach/accessory/:id', async (req, res) => {
 
     const cube = await getCube(req.params.id);
     const accessories = await Accessory.find().lean();
 
+    const cubeAccessory = cube.accessories.map(acc => String(acc._id));
+    const notAttachedAccessories = accessories.filter(acc => !cubeAccessory.includes(String(acc._id)));
+
+
     res.render('attachAccessory', {
-        accessories,
-        cube
+        notAttachedAccessories,
+        cube,
+        isFullorEmpty: cube.accessories.length === accessories.length
+            || cube.accessories.length === 0,
+        isFull: cube.accessories.length === accessories.length
     })
 })
 
