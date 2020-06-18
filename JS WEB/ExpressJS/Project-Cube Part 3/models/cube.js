@@ -5,6 +5,10 @@ const CubeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    creatorId: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true,
