@@ -185,6 +185,10 @@ input.search {
     width: 50%;
 }
 
+input {
+    
+}
+
 input[type=submit] {
     background-color: #545775;
     border: none;
@@ -210,6 +214,16 @@ div.form {
     padding: 20px;
     width: 36%;
     margin: auto;
+}
+
+#repeatPassword {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 12px;
+    border-radius: 0 4px 4px 4px;
+    margin: 8px 0 2em;
 }
 
 span.error {
