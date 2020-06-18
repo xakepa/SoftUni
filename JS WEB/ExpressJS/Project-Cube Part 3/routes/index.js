@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Cube = require('../models/cube');
 
-
-
 router.get('/', async (req, res) => {
 
     const cubes = await Cube.find().lean();
@@ -35,9 +33,7 @@ router.post('/create', (req, res) => {
     });
 })
 
-
 router.get('/details/:id', async (req, res) => {
-
 
     const cubeWithAccs = await Cube.findById(req.params.id)
         .populate('accessories').lean();
@@ -47,9 +43,6 @@ router.get('/details/:id', async (req, res) => {
         isEmpty: cubeWithAccs.accessories.length === 0
     });
 });
-
-
-
 
 router.get('/delete/:id', (req, res) => {
     const id = req.params.id;
@@ -69,6 +62,5 @@ router.get('/about', (req, res) => {
 router.all('*', (req, res) => {
     res.render('404');
 })
-
 
 module.exports = router;
