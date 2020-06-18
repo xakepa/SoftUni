@@ -2,11 +2,12 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 const Users = require('../models/user');
-const { saveUser } = require('../controllers/user');
+const { saveUser, verifyUser } = require('../controllers/user');
 
 router.get('/register', (req, res) => {
     res.render('./auth/registerPage')
 })
+
 router.post('/register', async (req, res) => {
 
     const status = await saveUser(req, res);
@@ -16,16 +17,21 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
+
 
     res.render('./auth/loginPage')
 })
 
-router.post('/login', (req, res) => {
-    const { username, password } = req.body
+router.post('/login', async (req, res) => {
 
+    const status = await verifyUser(req, res);
+    if (status) {
+        res.redirect(302, '/');
+    } else {
+        res.send('WRONG USERNAME OR PASSWORD')
+    }
 
-    res.redirect(302, '/');
 })
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const Users = require('../models/user');
 const bcrypt = require('bcrypt');
-const user = require('../models/user');
 
 const saveUser = async (req, res) => {
 
@@ -29,4 +28,15 @@ const saveUser = async (req, res) => {
     return true;
 }
 
-module.exports = { saveUser };
+const verifyUser = async (req, res) => {
+    const { username, password } = req.body;
+
+    //get user by username
+    const user = await Users.findOne({ username });
+
+    const status = await bcrypt.compare(password, user.password);
+
+    return status;
+}
+
+module.exports = { saveUser, verifyUser };
