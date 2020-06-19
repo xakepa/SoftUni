@@ -3,7 +3,6 @@ const Users = require('../models/user');
 const bcrypt = require('bcrypt');
 
 
-
 const saveUser = async (req, res) => {
 
     const { username, password } = req.body;
@@ -48,4 +47,19 @@ const verifyUser = async (req, res) => {
     return status;
 }
 
-module.exports = { saveUser, verifyUser };
+const isAuth = (req, res, next) => {
+
+    const token = req.cookies.jwt;
+    if (!token) {
+        return res.redirect(302, '/login');
+    }
+
+    try {
+        const decodedJwt = jwt.verify(token, process.env.JWT_SECRET);
+        next();
+    } catch (error) {
+        return res.redirect(302, '/login');
+    }
+}
+
+module.exports = { saveUser, verifyUser, isAuth };

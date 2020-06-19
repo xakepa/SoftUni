@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Accessory = require('../models/accessory');
 const getCube = require('../controllers/cubeController');
+const { isAuth } = require('../controllers/user');
 
-router.get('/create/accessory', (req, res) => {
+router.get('/create/accessory', isAuth, (req, res) => {
     res.render('createAccessory');
 })
 
@@ -24,7 +25,7 @@ router.post('/create/accessory', (req, res) => {
     res.redirect(302, '/');
 })
 
-router.get('/attach/accessory/:id', async (req, res) => {
+router.get('/attach/accessory/:id', isAuth, async (req, res) => {
 
     const cube = await getCube(req.params.id);
     const accessories = await Accessory.find().lean();
