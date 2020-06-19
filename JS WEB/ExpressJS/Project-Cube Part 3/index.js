@@ -36,4 +36,5 @@ require('./config/express')(app);
 app.use(authRouter, accessoryRouter, indexRouter);
 
 
-app.listen(process.env.PORT, console.log(`Listening on port ${process.env.PORT}! Now its up to you...`));
+app.listen(process.env.PORT,
+    console.log(`Listening on port ${process.env.PORT}! Now its up to you...`));

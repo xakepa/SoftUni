@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Cube = require('../models/cube');
-
-
+const jwt = require('jsonwebtoken');
+const { isAuth } = require('../controllers/user');
 
 router.get('/', async (req, res) => {
 
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     })
 })
 
-router.get('/create', (req, res) => {
+router.get('/create', isAuth, (req, res) => {
     res.render('create')
 })
 
@@ -25,7 +25,16 @@ router.post('/create', (req, res) => {
         difficultyLevel
     } = req.body
 
-    const cube = new Cube({ name, description, imageUrl, difficultyLevel });
+    const token = req.cookies.jwt;
+    const decodedJwt = jwt.verify(token, process.env.JWT_SECRET);
+
+    const cube = new Cube({
+        name,
+        description,
+        imageUrl,
+        difficultyLevel,
+        creatorId: decodedJwt.userId
+    });
     cube.save(err => {
         if (err) {
             console.log(err);
@@ -35,9 +44,7 @@ router.post('/create', (req, res) => {
     });
 })
 
-
-router.get('/details/:id', async (req, res) => {
-
+router.get('/details/:id', isAuth, async (req, res) => {
 
     const cubeWithAccs = await Cube.findById(req.params.id)
         .populate('accessories').lean();
@@ -48,10 +55,7 @@ router.get('/details/:id', async (req, res) => {
     });
 });
 
-
-
-
-router.get('/delete/:id', (req, res) => {
+router.get('/delete/:id', isAuth, (req, res) => {
     const id = req.params.id;
 
     Cube.findByIdAndDelete(id, err => {
@@ -69,6 +73,5 @@ router.get('/about', (req, res) => {
 router.all('*', (req, res) => {
     res.render('404');
 })
-
 
 module.exports = router;

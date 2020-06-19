@@ -7,7 +7,8 @@ const CubeSchema = new mongoose.Schema({
     },
     creatorId: {
         type: String,
-        required: true
+        required: true,
+        ref: 'Users'
     },
     description: {
         type: String,
