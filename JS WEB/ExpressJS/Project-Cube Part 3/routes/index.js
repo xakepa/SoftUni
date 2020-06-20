@@ -2,22 +2,28 @@ const express = require('express');
 const router = express.Router();
 const Cube = require('../models/cube');
 const jwt = require('jsonwebtoken');
-const { isAuth } = require('../controllers/user');
+const { isAuth, authAccessJSON } = require('../controllers/user');
 
 router.get('/', async (req, res) => {
 
     const cubes = await Cube.find().lean();
+    const isLogged = req.cookies.jwt;
 
     res.render('index', {
-        cubes
+        cubes,
+        isLogged
     })
 })
 
 router.get('/create', isAuth, (req, res) => {
-    res.render('create')
+    const isLogged = req.cookies.jwt;
+
+    res.render('create', {
+        isLogged
+    })
 })
 
-router.post('/create', (req, res) => {
+router.post('/create', authAccessJSON, (req, res) => {
     const {
         name,
         description,
@@ -44,14 +50,16 @@ router.post('/create', (req, res) => {
     });
 })
 
-router.get('/details/:id', isAuth, async (req, res) => {
+router.get('/details/:id', async (req, res) => {
 
     const cubeWithAccs = await Cube.findById(req.params.id)
         .populate('accessories').lean();
+    const isLogged = req.cookies.jwt;
 
     res.render('details', {
         ...cubeWithAccs,
-        isEmpty: cubeWithAccs.accessories.length === 0
+        isEmpty: cubeWithAccs.accessories.length === 0,
+        isLogged
     });
 });
 
@@ -67,7 +75,16 @@ router.get('/delete/:id', isAuth, (req, res) => {
 })
 
 router.get('/about', (req, res) => {
-    res.render('about')
+    const isLogged = req.cookies.jwt;
+
+    res.render('about', {
+        isLogged
+    });
+})
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwt');
+    res.redirect('/login');
 })
 
 router.all('*', (req, res) => {

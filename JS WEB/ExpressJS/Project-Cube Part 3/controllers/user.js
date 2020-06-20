@@ -29,7 +29,6 @@ const saveUser = async (req, res) => {
 const verifyUser = async (req, res) => {
     const { username, password } = req.body;
 
-    //get user by username
     const user = await Users.findOne({ username });
     const status = await bcrypt.compare(password, user.password);
 
@@ -62,4 +61,36 @@ const isAuth = (req, res, next) => {
     }
 }
 
-module.exports = { saveUser, verifyUser, isAuth };
+const guest = (req, res, next) => {
+    const token = req.cookies.jwt;
+    if (token) {
+        return res.redirect(302, '/');
+    }
+    next();
+}
+
+const authAccessJSON = (req, res, next) => {
+    const token = req.cookies.jwt;
+    if (!token) {
+        return res.json({
+            error: 'Not authenticated'
+        })
+    }
+
+    try {
+        jwt.verify(token, process.env.JWT_SECRET);
+        next();
+    } catch (error) {
+        return res.json({
+            error: 'Not authenticated'
+        })
+    }
+}
+
+module.exports = {
+    saveUser,
+    verifyUser,
+    isAuth,
+    guest,
+    authAccessJSON
+};
