@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { saveUser, verifyUser } = require('../controllers/user');
+const { saveUser, verifyUser, guest, authAccessJSON } = require('../controllers/user');
 
-router.get('/register', (req, res) => {
+router.get('/register', guest, (req, res) => {
     res.render('./auth/registerPage')
 })
 
-router.post('/register', async (req, res) => {
+router.post('/register', authAccessJSON, async (req, res) => {
 
     const status = await saveUser(req, res);
 
@@ -15,7 +15,7 @@ router.post('/register', async (req, res) => {
     }
 })
 
-router.get('/login', async (req, res) => {
+router.get('/login', guest, async (req, res) => {
 
 
     res.render('./auth/loginPage')
