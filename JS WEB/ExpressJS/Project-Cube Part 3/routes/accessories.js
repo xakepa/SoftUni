@@ -3,6 +3,7 @@ const router = express.Router();
 const Accessory = require('../models/accessory');
 const getCube = require('../controllers/cubeController');
 const { isAuth, authAccessJSON } = require('../controllers/user');
+const Cube = require('../models/cube');
 
 router.get('/create/accessory', isAuth, (req, res) => {
     const isLogged = req.cookies.jwt;

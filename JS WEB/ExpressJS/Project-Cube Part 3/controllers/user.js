@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Users = require('../models/user');
 const bcrypt = require('bcrypt');
+const getCube = require('./cubeController');
 
 
 const saveUser = async (req, res) => {
@@ -87,10 +88,24 @@ const authAccessJSON = (req, res, next) => {
     }
 }
 
+const isOwner = async (req, res) => {
+    const token = req.cookies.jwt;
+    const decodedJwt = jwt.verify(token, process.env.JWT_SECRET);
+    const cube = await getCube(req.params.id);
+
+
+    if (cube.creatorId == decodedJwt.userId) {
+        return true;
+    }
+    return false;
+
+}
+
 module.exports = {
     saveUser,
     verifyUser,
     isAuth,
     guest,
-    authAccessJSON
+    authAccessJSON,
+    isOwner
 };

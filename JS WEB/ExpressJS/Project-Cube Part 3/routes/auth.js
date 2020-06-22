@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { saveUser, verifyUser, guest, authAccessJSON } = require('../controllers/user');
+const { saveUser, verifyUser, guest } = require('../controllers/user');
 
 router.get('/register', guest, (req, res) => {
     res.render('./auth/registerPage')
 })
 
-router.post('/register', authAccessJSON, async (req, res) => {
+router.post('/register', async (req, res) => {
 
     const status = await saveUser(req, res);
 

@@ -6,8 +6,11 @@
     <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
     <div class="btns">
       <a class="btn" href="/">Back</a>
+      {{#if owner}}
       <a class="btn" href="/attach/accessory/{{_id}} ">Attach Accessory</a>
+      <a class="btn" href="/edit/{{_id}}">Edit</a>
       <a class="btn btn-del" href="/delete/{{_id}}">Delete</a>
+      {{/if}}
     </div>
   </div>
 </main>
