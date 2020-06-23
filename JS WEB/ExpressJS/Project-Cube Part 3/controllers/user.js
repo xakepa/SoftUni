@@ -31,7 +31,20 @@ const verifyUser = async (req, res) => {
     const { username, password } = req.body;
 
     const user = await Users.findOne({ username });
+
+    if (!user) {
+        return res.render('./auth/loginPage', {
+            error: 'Username does not exist'
+        });
+    }
+
     const status = await bcrypt.compare(password, user.password);
+
+    if (!status) {
+        return res.render('./auth/loginPage', {
+            error: 'WRONG PASSWORD !'
+        })
+    }
 
     if (status) {
 
@@ -46,7 +59,6 @@ const verifyUser = async (req, res) => {
 
     return status;
 }
-
 const isAuth = (req, res, next) => {
 
     const token = req.cookies.jwt;
@@ -101,11 +113,42 @@ const isOwner = async (req, res) => {
 
 }
 
+const validatePassword = async (req, res, next) => {
+
+    const { username, password, repeatPassword } = req.body;
+
+    let error = '';
+    const user = await Users.findOne({ username });
+
+    const passwordValidator = /^(?=.*[0-9])(?=.*[a-zA-Z])\w{8,}$/
+
+    if (username.length < 5) {
+        error = 'Username must be at least 5 symbols';
+    } else if (user) {
+        error = 'Username already exist';
+    } else if (password !== repeatPassword) {
+        error = 'Passwords do not much';
+    } else if (password.length < 8) {
+        error = 'Password should be at least 8 digits and letters';
+    } else if (!(password.match(passwordValidator))) {
+        error = 'Password should be mix consisting at least one digit and only english letters';
+    }
+
+    if (error) {
+        return res.render('./auth/registerPage', {
+            error
+        })
+    }
+    next();
+}
+
+
 module.exports = {
     saveUser,
     verifyUser,
     isAuth,
     guest,
     authAccessJSON,
-    isOwner
+    isOwner,
+    validatePassword
 };

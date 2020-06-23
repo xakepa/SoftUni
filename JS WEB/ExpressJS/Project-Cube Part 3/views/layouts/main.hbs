@@ -11,6 +11,9 @@
 <body>
     <div class="container">
         {{>header}}
+        {{#if error}}
+        {{>notifications}}
+        {{/if}}
         {{{body}}}
     </div>
     {{>footer}}
