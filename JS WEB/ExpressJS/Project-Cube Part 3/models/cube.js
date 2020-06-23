@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const CubeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        minlength: 5
     },
     creatorId: {
         type: String,
@@ -13,6 +14,7 @@ const CubeSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
+        minlength: 20,
         maxlength: 2000
     },
     imageUrl: {
