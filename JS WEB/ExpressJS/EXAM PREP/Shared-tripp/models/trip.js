@@ -21,7 +21,7 @@ const tripSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    desciption: {
+    description: {
         type: String,
         required: true
     },
@@ -29,10 +29,15 @@ const tripSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    creatorId: {
+        type: String,
+        required: true,
+        ref: 'Users'
+    },
     buddies: [{
         type: mongoose.Types.ObjectId,
         ref: 'Users'
     }]
 })
 
-module.exports = mongoose.model('Trip', UserSchema);
+module.exports = mongoose.model('Trip', tripSchema);

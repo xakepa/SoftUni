@@ -4,69 +4,15 @@
         <h1 class="display-3">Welcome ShareTrippers!</h1>
         <p class="lead">SharedTripp is the best way to road across the country. <br> Find yours SharedTripp's
             buddies, when you share with us yours tripp plans and let the exploration begin!</p>
-        <a href="#" class="btn btn-primary btn-lg">Offer Tripp!</a>
+        <a href="/create-trip" class="btn btn-primary btn-lg">Offer Tripp!</a>
     </header>
 
     <!-- Page Features -->
     <div class="row text-center">
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top"
-                    src="https://vignette.wikia.nocookie.net/gran-turismo/images/b/b2/Chevrolet_Camaro_SS_%2769.jpg/revision/latest?cb=20181005160928"
-                    alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Studentski grad - Varna</h4>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top"
-                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cybertruck-1-1574399754.jpeg"
-                    alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Sofia - Elon Musk's Mantion</h4>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top"
-                    src="https://vignette.wikia.nocookie.net/gran-turismo/images/b/b2/Chevrolet_Camaro_SS_%2769.jpg/revision/latest?cb=20181005160928"
-                    alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Studentski grad - Varna</h4>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-                <img class="card-img-top"
-                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cybertruck-1-1574399754.jpeg"
-                    alt="">
-                <div class="card-body">
-                    <h4 class="card-title">Sofia - Elon Musk's Mantion</h4>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-
+        {{#each trips}}
+        {{>singleTrip}}
+        {{else}}
+        {{>noTrips}}
+        {{/each}}
     </div>
 </div>
