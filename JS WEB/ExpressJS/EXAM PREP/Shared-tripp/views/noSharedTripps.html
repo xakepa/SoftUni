@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../static/dist/css/bootstrap.css" rel="stylesheet" type="text/css"> <!--TODO: CHANGE-->
+    <title>Page Title</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">SharedTripp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shared Tripps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout as [{{ loggedEmail }}]</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container" style="height: 90vh;">
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+            <h1 class="display-3">Welcome ShareTrippers!</h1>
+            <p class="lead">SharedTripp is the best way to road across the country. <br> Find yours SharedTripp's
+                buddies, when you share with us yours tripp plans and let the exploration begin!</p>
+            <a href="#" class="btn btn-primary btn-lg">Offer Tripp!</a>
+        </header>
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+            <div style="width: 100%;">
+                <img style="max-width: 500px;" src="https://myrealdomain.com/images/hitchhiker-cartoon-5.png" />
+                <p class="lead" style=" width: 100%; text-align: center; font-size: 22px; font-style: italic;">
+                    Hitchhiker time...</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <footer id="sticky-footer" class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © SharedTripp 2019</p>
+        </div>
+        <!-- /.container -->
+        <div></div>
+    </footer>
+</body>
+
+</html>

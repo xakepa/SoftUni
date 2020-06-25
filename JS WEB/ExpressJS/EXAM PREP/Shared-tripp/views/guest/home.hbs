@@ -1,0 +1,49 @@
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">SharedTripp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Shared Tripps</a>
+                    </li>
+                    <li class="nav-item">
+                        {{#if isLogged}}
+                        <a class="nav-link" href="/">Logout as [{{ loggedEmail }}]</a>
+                        {{else}}
+                        <a class="nav-link" href="/register">Register</a>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {{/if}}
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="py-5 bg-image-full"
+        style="background-image: url('https://web-assets.cdn.dealersolutions.com.au/modular.multisite.dealer.solutions/wp-content/uploads/2018/03/17144131/Ford_Ranger_2-1900x1080.jpg'); background-repeat: no-repeat;">
+
+        <div style="height: 70vh;"></div>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <h1>SharedTripp</h1>
+            <div>
+                <p class="lead" style="font-size: 24px; font-style: italic;">"Because the greatest part of a road trip
+                    isn't arriving at your destination. It's all the wild stuff that happens along the way..."
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
