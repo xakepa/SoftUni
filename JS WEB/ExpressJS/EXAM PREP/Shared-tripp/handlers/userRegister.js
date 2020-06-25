@@ -10,7 +10,8 @@ module.exports = (req, res) => {
         Users.create({ email, password: hashedPassword })
             .then((user) => {
                 const token = jwt.sign({
-                    userId: user._id
+                    userId: user._id,
+                    email: user.email
                 },
                     process.env.JWT_SECRET, { expiresIn: 60 * 60 * 60 * 1000 });
 

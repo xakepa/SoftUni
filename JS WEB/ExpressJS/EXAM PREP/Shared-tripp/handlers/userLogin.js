@@ -10,11 +10,13 @@ module.exports = async (req, res) => {
     if (status) {
 
         const token = jwt.sign({
-            userId: user._id
+            userId: user._id,
+            email: user.email
         },
             process.env.JWT_SECRET, { expiresIn: 60 * 60 * 60 * 1000 });
 
         res.cookie('jwt', token);
+        res.email = user.email;
     }
     return status;
 }

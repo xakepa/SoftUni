@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 const isAuth = (req, res, next) => {
 
     const token = req.cookies.jwt;
@@ -39,4 +41,15 @@ const authAccessJSON = (req, res, next) => {
     }
 }
 
-module.exports = { guest, isAuth, authAccessJSON }
+const isLoggedIn = (req, res, next) => {
+    const token = req.cookies.jwt;
+
+    if (token) {
+        const decodedJwt = jwt.verify(token, process.env.JWT_SECRET);
+        res.isLogged = true;
+        res.email = decodedJwt.email;
+    }
+    next();
+}
+
+module.exports = { guest, isAuth, authAccessJSON, isLoggedIn }
