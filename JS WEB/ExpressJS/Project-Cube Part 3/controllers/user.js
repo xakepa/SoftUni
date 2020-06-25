@@ -110,7 +110,6 @@ const isOwner = async (req, res) => {
         return true;
     }
     return false;
-
 }
 
 const validatePassword = async (req, res, next) => {
