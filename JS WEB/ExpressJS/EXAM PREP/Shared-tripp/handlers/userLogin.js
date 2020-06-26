@@ -6,6 +6,12 @@ module.exports = async (req, res) => {
     const { email, password } = req.body;
     const user = await Users.findOne({ email });
 
+    if (!user) {
+        return res.render('./guest/login', {
+            error: 'Username does not exist'
+        });
+    }
+
     const status = await bcrypt.compare(password, user.password);
     if (status) {
 
@@ -13,10 +19,14 @@ module.exports = async (req, res) => {
             userId: user._id,
             email: user.email
         },
-            process.env.JWT_SECRET, { expiresIn: 60 * 60 * 60 * 1000 });
+            process.env.JWT_SECRET, { expiresIn: 3600 * 1000 * 24 });
 
-        res.cookie('jwt', token);
+        res.cookie('jwt', token, { maxAge: 3600 * 1000 * 24, httpOnly: true });
         res.email = user.email;
+    } else {
+        return res.render('./guest/login', {
+            error: 'WRONG PASSWORD !'
+        })
     }
     return status;
 }

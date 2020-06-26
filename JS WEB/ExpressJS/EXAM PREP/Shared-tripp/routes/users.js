@@ -2,14 +2,15 @@ const express = require('express');
 const router = express.Router();
 const userRegister = require('../handlers/userRegister');
 const userLogin = require('../handlers/userLogin');
+const { registerValidator } = require('../handlers/validators');
 
 router.get('/register', (req, res) => {
   res.render('./guest/register');
 })
 
-router.post('/register', async (req, res) => {
+router.post('/register', registerValidator, async (req, res) => {
 
-  userRegister(req, res);
+  await userRegister(req, res);
 })
 
 router.get('/login', (req, res) => {

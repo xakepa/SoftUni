@@ -46,9 +46,12 @@ const isLoggedIn = (req, res, next) => {
 
     if (token) {
         const decodedJwt = jwt.verify(token, process.env.JWT_SECRET);
-        res.isLogged = true;
-        res.email = decodedJwt.email;
-        res.userId = decodedJwt.userId;
+
+        if (decodedJwt) {
+            res.isLogged = true;
+            res.email = decodedJwt.email;
+            res.userId = decodedJwt.userId;
+        }
     }
     next();
 }

@@ -8,7 +8,8 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minlength: 6
     },
     tripHistory: [{
         type: mongoose.Types.ObjectId,
