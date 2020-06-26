@@ -21,6 +21,6 @@ module.exports = (req, res) => {
         description
     })
         .then(() => {
-            console.log('Trip created successful !');
+            console.log('Trip created successfully !');
         }).catch(console.error)
 }
