@@ -1,9 +1,11 @@
 const express = require('express');
 const { isLoggedIn, isAuth } = require('../handlers/authentication');
 const createTrip = require('../handlers/createTrip');
+const { tripFormValidator } = require('../handlers/validators');
 const Trip = require('../models/trip');
 const joinTrip = require('../handlers/joinTrip');
 const router = express.Router();
+
 
 /* GET home page. */
 router.get('/', isLoggedIn, (req, res) => {
@@ -30,10 +32,8 @@ router.get('/create-trip', isAuth, isLoggedIn, (req, res) => {
   res.render('offerTripp', { loggedEmail: res.email })
 })
 
-router.post('/create-trip', async (req, res) => {
-  await createTrip(req, res);
-  res.redirect('/main');
-})
+router.post('/create-trip', tripFormValidator, createTrip)
+
 
 router.get('/details/:id', isLoggedIn, async (req, res) => {
   const trip = await Trip.findById(req.params.id).lean();

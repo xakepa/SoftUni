@@ -32,4 +32,34 @@ const registerValidator = async (req, res, next) => {
     next();
 }
 
-module.exports = { registerValidator }
+const tripFormValidator = (req, res, next) => {
+
+    const { startAndEndPoint, dateTime, carImage, seats, description } = req.body;
+    const [startPoint, endPoint] = startAndEndPoint.split(' - ')
+    const [date, time] = dateTime.split(' - ');
+
+    let error = '';
+
+    if (!startPoint || !endPoint) {
+        error = 'Starting and End point should be at least 4 characters long (each) and should be separated with single space, dash and another single space (" - ")'
+    } else if (!date || !time) {
+        error = 'Date and Time should be at least 6 characters long (each) and should be separated with single space, dash and another single space (" - ")'
+    } else if (!(carImage.startsWith('http://') || carImage.startsWith('https://'))) {
+        error = 'Image url must start with http:// or https://'
+    } else if (seats < 1) {
+        error = 'The Seats should be positive number';
+    } else if (description.length < 10) {
+        error = 'The description should be at least 10 characters long';
+    }
+
+    if (error) {
+        return res.render('offerTripp', {
+            loggedEmail: res.email,
+            error
+        })
+    }
+
+    next()
+}
+
+module.exports = { registerValidator, tripFormValidator }
