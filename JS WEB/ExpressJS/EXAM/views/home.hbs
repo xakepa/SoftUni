@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Express Exam</title>
+    <link href="../static/css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <section class="container">
+                <h1>My Theater Info</h1>
+                <p>Lorem reprehenderit nostrud do do ut ad irure aliquip anim adipisicing nulla ullamco. Non mollit
+                    Lorem sunt proident nostrud dolore est minim reprehenderit adipisicing consectetur dolore.
+                    Nostrud id amet ad irure irure aute ad veniam deserunt mollit sint pariatur. Velit quis amet
+                    aliquip tempor. Dolore culpa deserunt proident nostrud amet consectetur.
+                    Exercitation exercitation pariatur deserunt duis. Elit duis aute do ullamco fugiat magna officia
+                    ad. Pariatur nulla ut pariatur Lorem pariatur incididunt eu excepteur sint qui. Amet esse et
+                    eiusmod officia fugiat aliquip ullamco laboris sint cillum cillum. Elit proident mollit officia
+                    tempor aliquip non ea occaecat sunt eiusmod enim nulla anim. Voluptate laborum consequat elit
+                    quis cupidatat tempor ad laboris duis non eiusmod.</p>
+            </section>
+            <section>
+                <div class="aux">
+                    {{#if isLogged}}
+                    <h1>Available Plays</h1>
+                    {{else}}
+                    <h1>Best Rated Plays</h1>
+                    {{/if}}
+                    <div class="home-buttons">
+                        <a class="btn create-play" href="/create-theater">Create Theater</a>
+                        <a class="btn create-play" href="/sort-by-date">Sort by Date</a>
+                        <a class="btn create-play" href="/sort-by-likes">Sort by Likes</a>
+                    </div>
+                </div>
+                <div class="theaters-container">
+                    {{#each plays}}
+                    {{#if this.isPublic}}
+                    {{>single-play}}
+                    {{else}}
+                    {{#if this.owner}}
+                    {{>single-play}}
+                    {{/if}}
+                    {{/if}}
+                    {{/each}}
+
+                    {{#unless plays}}
+                    <h2>No plays yet...</h2>
+                    {{/unless}}
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+</body>
+
+</html>
