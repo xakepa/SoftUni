@@ -23,6 +23,7 @@ const guest = (req, res, next) => {
     next();
 }
 
+//protect from http request like POSTMAN, INSOMNIA
 const authAccessJSON = (req, res, next) => {
     const token = req.cookies.jwt;
     if (!token) {
@@ -49,7 +50,7 @@ const isLoggedIn = (req, res, next) => {
 
         if (decodedJwt) {
             res.isLogged = true;
-            res.email = decodedJwt.email;
+            res.user = decodedJwt.username;
             res.userId = decodedJwt.userId;
         }
     }

@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const sortingRouter = require('./routes/sorting');
 const mongoose = require('mongoose');
 const handlebars = require('express-handlebars');
 const app = express();
@@ -34,7 +35,7 @@ mongoose.connect(process.env.DB_URL, {
 });
 
 
-app.use(usersRouter, indexRouter);
+app.use(usersRouter, indexRouter, sortingRouter);
 
 app.listen(process.env.PORT,
   console.log(`App is listening on port ${process.env.PORT}!`));
