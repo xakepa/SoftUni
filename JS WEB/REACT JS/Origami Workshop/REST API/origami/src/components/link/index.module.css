@@ -1,0 +1,38 @@
+.header-link {
+    color: white;
+    text-decoration: none;
+}
+
+
+footer .listItem a {
+    color: #234465;
+    text-decoration: none;
+}
+
+.listItem {
+    display: inline-block;
+    height: auto;
+    margin-right: 2%;
+    cursor: pointer;
+    padding: 0.5%;
+    margin: 0.1%;
+    vertical-align: top;
+}
+
+nav .listItem:hover {
+    border-top: none;
+    border-bottom: 2px solid #ffa000;
+    font-weight: bold;
+}
+
+nav .listItem:not(:first-child) {
+    padding: 10px;
+    margin-top: 10px;
+    border-top: 2px solid #ffa000;
+}
+
+footer .listItem:not(:last-child) {
+    padding: 2%;
+    margin-top: 1.5%;
+    border-bottom: 2px solid #234465;
+}
