@@ -6,11 +6,11 @@ const Header = () => {
     return (
         <nav className={styles.navigation}>
             <ul>
-                <Link href={"#"} number={1} />
-                <Link href={"#"} number={2} />
-                <Link href={"#"} number={3} />
-                <Link href={"#"} number={4} />
-                <Link href={"#"} number={5} />
+                <Link href={"#"} number={1} type="header" />
+                <Link href={"#"} number={2} type="header" />
+                <Link href={"#"} number={3} type="header" />
+                <Link href={"#"} number={4} type="header" />
+                <Link href={"#"} number={5} type="header" />
             </ul>
         </nav>
     )
