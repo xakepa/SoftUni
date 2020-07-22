@@ -3,10 +3,11 @@ import styles from './index.module.css';
 
 const Link = (props) => {
     return (
-        <li className={styles.listItem}>
-            <a href={props.href} className={styles['header-link']}>Going to {props.number}</a>
-        </li>
+        <div className={styles[`${props.type}-list-item`]}>
+            <a className={styles[`${props.type}-link`]} href={props.href} >Going to {props.number}</a>
+        </div>
     )
 }
+
 
 export default Link;

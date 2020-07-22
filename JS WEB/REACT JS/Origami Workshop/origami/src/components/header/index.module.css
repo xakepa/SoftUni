@@ -1,6 +1,6 @@
 .navigation {
     width: 100%;
-    height: 14vh;
+    height: 12vh;
     background-color: #234465;
     color: white;
     position: fixed;
@@ -9,3 +9,8 @@
     border-top: 2px solid #ffa000;
 }
 
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
