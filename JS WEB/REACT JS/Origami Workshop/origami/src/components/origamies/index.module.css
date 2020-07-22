@@ -1,0 +1,19 @@
+.container {
+    display: inline-block;
+    width: 83%;
+    height: auto;
+    /* border:1px solid blue; */
+    margin-bottom: 5%;
+}
+
+.title {
+    text-align: center;
+    color: #234465;
+    text-decoration: underline;
+    margin-bottom: 2%;
+}
+
+.posts-wrapper {
+        width: 100%;
+        height: 45vh;
+}
