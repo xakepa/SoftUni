@@ -3,12 +3,18 @@ import SingleOrigami from '../single-origami';
 import styles from './index.module.css';
 
 class Origamies extends React.Component {
-    constructor(props) {
-        super(props)
+    // constructor(props) {
+    //     super(props)
 
-        this.state = {
-            origami: []
-        }
+    //     this.state = {
+    //         origami: []
+    //     }
+    // }
+
+    //short syntax
+
+    state = {
+        origami: []
     }
 
     getOrigamis = async () => {
@@ -24,13 +30,13 @@ class Origamies extends React.Component {
 
     renderOrigami = () => {
         const { origami } = this.state;
-        return origami.map(singleOrigami => <SingleOrigami key={singleOrigami._id} {...singleOrigami} />)
+        return origami.map((singleOrigami, i) => <SingleOrigami key={singleOrigami._id} index={i} {...singleOrigami} />)
     }
     render() {
         return (
             <div className={styles.container}>
                 <h1 className={styles.title}>
-                    Origami
+                    Publications
                 </h1>
                 <div className={styles[`posts-wrapper`]}>
                     {this.renderOrigami()}

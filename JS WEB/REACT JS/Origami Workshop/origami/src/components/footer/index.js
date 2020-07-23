@@ -2,22 +2,22 @@ import React from 'react';
 import Link from '../link';
 import styles from './index.module.css';
 import logo from '../../images/blue-origami-bird-flipped.png';
+import getNavigation from '../../utils/navigation';
 
 const Footer = () => {
+    const links = getNavigation();
+
     return (
         <footer className={styles.footer}>
             <ul>
-                <Link href={"#"} number={1} type="footer" />
-                <Link href={"#"} number={2} type="footer" />
-                <Link href={"#"} number={3} type="footer" />
-                <Link href={"#"} number={4} type="footer" />
-                <Link href={"#"} number={5} type="footer" />
-                <Link href={"#"} number={6} type="footer" />
-                <Link href={"#"} number={7} type="footer" />
-                <Link href={"#"} number={8} type="footer" />
-                <Link href={"#"} number={9} type="footer" />
-                <Link href={"#"} number={10} type="footer" />
-                <Link href={"#"} number={11} type="footer" />
+                <Link href={"#"} value={'Post'} type="footer" />
+                {
+                    links.map(l => <Link href={l.link} value={l.title} type="footer" />)
+                }
+                <Link href={"#"} value={'#######'} type="footer" />
+                <Link href={"#"} value={'#######'} type="footer" />
+                <Link href={"#"} value={'#######'} type="footer" />
+                <Link href={"#"} value={'#######'} type="footer" />
                 <img className={styles.logo} src={logo} alt="Logo" />
             </ul>
             <p className={styles.university}>
