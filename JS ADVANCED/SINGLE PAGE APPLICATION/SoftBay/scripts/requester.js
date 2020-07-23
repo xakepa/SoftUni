@@ -1,6 +1,6 @@
 const baseUrl = `https://baas.kinvey.com`;
-const appKey = 'kid_S1_ZEyKar';
-const secret = '14ef43f03c7145a289f69dc08ff451a4';
+const appKey = 'kid_By8d9xLxw';
+const secret = '4b058692933c45ca8e201fd37c23b30b';
 
 function createAuthorization(type) {
 
