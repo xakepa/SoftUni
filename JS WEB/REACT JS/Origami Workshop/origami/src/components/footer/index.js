@@ -12,7 +12,7 @@ const Footer = () => {
             <ul>
                 <Link href={"#"} value={'Post'} type="footer" />
                 {
-                    links.map(l => <Link href={l.link} value={l.title} type="footer" />)
+                    links.map(l => <Link key={l.title} href={l.link} value={l.title} type="footer" />)
                 }
                 <Link href={"#"} value={'#######'} type="footer" />
                 <Link href={"#"} value={'#######'} type="footer" />
