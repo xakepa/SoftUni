@@ -19,9 +19,12 @@ class Profile extends React.Component {
 
     getUser = async (id) => {
         const response = await fetch(`http://localhost:9999/api/user?id=${id}`)
-        const user = await response.json()
 
-        console.log(user)
+        if (!response.ok) {
+            this.props.history.push('/error')
+        }
+
+        const user = await response.json()
         this.setState({
             username: user.username,
             posts: user.posts && user.posts.length

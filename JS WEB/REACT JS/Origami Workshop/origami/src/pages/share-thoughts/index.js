@@ -9,9 +9,7 @@ const ShareThoughtsPage = () => {
     return (
         <PageWrapper>
             <Title title='Share your thoughts...' />
-            <textarea className={styles.textarea}>
-
-            </textarea>
+            <textarea className={styles.textarea} defaultValue=''></textarea>
             <SubmitButton title='POST' />
             <Origamies length={3} />
         </PageWrapper>
