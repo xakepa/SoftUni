@@ -5,7 +5,7 @@ import PageWrapper from '../../components/page-wrapper'
 import Title from '../../components/title'
 import styles from './index.module.css'
 
-class RegisterPage extends React.Component {
+class LoginPage extends React.Component {
 
     state = {
         email: '',
@@ -21,12 +21,12 @@ class RegisterPage extends React.Component {
     }
     render() {
 
-        const { email, password, rePassword } = this.state
+        const { email, password } = this.state
 
         return (
             <PageWrapper>
                 <div>
-                    <Title title='Register' />
+                    <Title title='Login' />
                     <div className={styles.container}>
                         <Input
                             value={email}
@@ -41,15 +41,8 @@ class RegisterPage extends React.Component {
                             label="Password"
                             id="password"
                         />
-                        <Input
-                            type='password'
-                            value={rePassword}
-                            onChange={(e) => this.onChange(e, 'rePassword')}
-                            label="Re-Password"
-                            id="re-password"
-                        />
                     </div>
-                    <SubmitButton title='Register' />
+                    <SubmitButton title='Login' />
                 </div>
             </PageWrapper>
         )
@@ -57,4 +50,4 @@ class RegisterPage extends React.Component {
 
 }
 
-export default RegisterPage
+export default LoginPage
