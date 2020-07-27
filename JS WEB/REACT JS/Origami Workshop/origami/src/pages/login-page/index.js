@@ -20,30 +20,28 @@ class LoginPage extends React.Component {
         this.setState(newState)
     }
     render() {
-
         const { email, password } = this.state
 
         return (
             <PageWrapper>
-                <div>
+                <form className={styles.container}>
                     <Title title='Login' />
-                    <div className={styles.container}>
-                        <Input
-                            value={email}
-                            onChange={(e) => { this.onChange(e, 'email') }}
-                            label='Email'
-                            id='email'
-                        />
-                        <Input
-                            type='password'
-                            value={password}
-                            onChange={(e) => this.onChange(e, 'password')}
-                            label="Password"
-                            id="password"
-                        />
-                    </div>
+
+                    <Input
+                        value={email}
+                        onChange={(e) => { this.onChange(e, 'email') }}
+                        label='Email'
+                        id='email'
+                    />
+                    <Input
+                        type='password'
+                        value={password}
+                        onChange={(e) => this.onChange(e, 'password')}
+                        label="Password"
+                        id="password"
+                    />
                     <SubmitButton title='Login' />
-                </div>
+                </form>
             </PageWrapper>
         )
     }
