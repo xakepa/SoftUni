@@ -3,25 +3,20 @@ import SingleOrigami from '../single-origami';
 import styles from './index.module.css';
 
 class Origamies extends React.Component {
-    // constructor(props) {
-    //     super(props)
-
-    //     this.state = {
-    //         origami: []
-    //     }
-    // }
-
-    //short syntax
 
     state = {
         origami: []
     }
 
-    getOrigamis = async () => {
-        fetch('http://localhost:9999/api/origami')
+    getOrigamis = () => {
+        const { length } = this.props
+        fetch(`http://localhost:9999/api/origami`)
             .then(res => res.json())
-            .then(origami => this.setState({ origami }))
-            .catch(console.error);
+            .then(origami => {
+                origami = origami.slice(length)
+                this.setState({ origami })
+            })
+            .catch(console.error)
     }
 
     componentDidMount() {
@@ -34,14 +29,11 @@ class Origamies extends React.Component {
     }
     render() {
         return (
-            <div className={styles.container}>
-                <h1 className={styles.title}>
-                    Publications
-                </h1>
-                <div className={styles[`posts-wrapper`]}>
-                    {this.renderOrigami()}
-                </div>
+
+            <div className={styles[`posts-wrapper`]}>
+                {this.renderOrigami()}
             </div>
+
         )
     }
 }
