@@ -14,10 +14,7 @@ const Footer = () => {
                 {
                     links.map(l => <Link key={l.title} href={l.link} value={l.title} type="footer" />)
                 }
-                <Link href={"#"} value={'#######'} type="footer" />
-                <Link href={"#"} value={'#######'} type="footer" />
-                <Link href={"#"} value={'#######'} type="footer" />
-                <Link href={"#"} value={'#######'} type="footer" />
+
                 <img className={styles.logo} src={logo} alt="Logo" />
             </ul>
             <p className={styles.university}>

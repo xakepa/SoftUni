@@ -8,7 +8,7 @@ import styles from './index.module.css'
 class RegisterPage extends React.Component {
 
     state = {
-        email: '',
+        username: '',
         password: '',
         rePassword: ''
     }
@@ -19,20 +19,50 @@ class RegisterPage extends React.Component {
 
         this.setState(newState)
     }
+
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        const { username, password } = this.state
+
+        try {
+            const data = await fetch('http://localhost:9999/api/user/register', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username,
+                    password
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const authToken = data.headers.get('Authorization')
+            document.cookie = `jwt-token=${authToken}`
+
+            const response = await data.json()
+
+            if (response.username && authToken) {
+                this.props.history.push('/')
+            }
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
     render() {
 
-        const { email, password, rePassword } = this.state
+        const { username, password, rePassword } = this.state
 
         return (
             <PageWrapper>
-                <div>
+                <form onSubmit={this.handleSubmit}>
                     <Title title='Register' />
                     <div className={styles.container}>
                         <Input
-                            value={email}
-                            onChange={(e) => { this.onChange(e, 'email') }}
-                            label='Email'
-                            id='email'
+                            value={username}
+                            onChange={(e) => { this.onChange(e, 'username') }}
+                            label='Username'
+                            id='username'
                         />
                         <Input
                             type='password'
@@ -50,7 +80,7 @@ class RegisterPage extends React.Component {
                         />
                     </div>
                     <SubmitButton title='Register' />
-                </div>
+                </form>
             </PageWrapper>
         )
     }

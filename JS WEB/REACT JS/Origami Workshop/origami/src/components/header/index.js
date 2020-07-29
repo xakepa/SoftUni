@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './index.module.css';
-import Link from '../link';
+import LinkComponent from '../link';
 import logo from '../../images/white-origami-bird.png';
 import getNavigation from '../../utils/navigation';
 
@@ -12,15 +12,8 @@ const Header = () => {
             <ul>
                 <img className={styles.logo} src={logo} alt="Logo" />
                 {
-                    links.map(l => <Link href={l.link} key={l.title} value={l.title} type="header" />)
+                    links.map(l => <LinkComponent href={l.link} key={l.title} value={l.title} type="header" />)
                 }
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
-                <Link href={"#"} value={'#######'} type="header" />
             </ul>
         </nav>
     )
