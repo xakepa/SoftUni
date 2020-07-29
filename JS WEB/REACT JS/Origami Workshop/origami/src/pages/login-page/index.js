@@ -3,6 +3,7 @@ import SubmitButton from '../../components/button/submit-button'
 import Input from '../../components/input'
 import PageWrapper from '../../components/page-wrapper'
 import Title from '../../components/title'
+import authenticate from '../../utils/authenticate'
 import styles from './index.module.css'
 
 class LoginPage extends React.Component {
@@ -23,32 +24,13 @@ class LoginPage extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const { username, password } = this.state
-
-        try {
-            const data = await fetch('http://localhost:9999/api/user/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,
-                    password
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const authToken = data.headers.get('Authorization')
-            document.cookie = `jwt-token=${authToken}`
-
-            const response = await data.json()
-
-            if (response.username && authToken) {
-                this.props.history.push('/')
-            }
-
-        } catch (error) {
-            console.error(error)
-        }
-
+        await authenticate('http://localhost:9999/api/user/login', {
+            username, password
+        }, () => {
+            this.props.history.push('/')
+        }, (e) => {
+            console.log('Error', e)
+        })
     }
 
     render() {
