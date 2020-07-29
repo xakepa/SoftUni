@@ -8,42 +8,72 @@ import styles from './index.module.css'
 class LoginPage extends React.Component {
 
     state = {
-        email: '',
+        username: '',
         password: '',
         rePassword: ''
     }
 
-    onChange = (event, type) => {
+    handleChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
 
         this.setState(newState)
     }
-    render() {
 
-        const { email, password } = this.state
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        const { username, password } = this.state
+
+        try {
+            const data = await fetch('http://localhost:9999/api/user/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username,
+                    password
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const authToken = data.headers.get('Authorization')
+            document.cookie = `jwt-token=${authToken}`
+
+            const response = await data.json()
+
+            if (response.username && authToken) {
+                this.props.history.push('/')
+            }
+
+        } catch (error) {
+            console.error(error)
+        }
+
+    }
+
+    render() {
+        const { username, password } = this.state
 
         return (
             <PageWrapper>
-                <div>
+                <form className={styles.container} onSubmit={this.handleSubmit}>
                     <Title title='Login' />
-                    <div className={styles.container}>
-                        <Input
-                            value={email}
-                            onChange={(e) => { this.onChange(e, 'email') }}
-                            label='Email'
-                            id='email'
-                        />
-                        <Input
-                            type='password'
-                            value={password}
-                            onChange={(e) => this.onChange(e, 'password')}
-                            label="Password"
-                            id="password"
-                        />
-                    </div>
+
+                    <Input
+                        value={username}
+                        onChange={(e) => { this.handleChange(e, 'username') }}
+                        label='Username'
+                        id='username'
+                    />
+                    <Input
+                        type='password'
+                        value={password}
+                        onChange={(e) => this.handleChange(e, 'password')}
+                        label="Password"
+                        id="password"
+                    />
                     <SubmitButton title='Login' />
-                </div>
+                </form>
             </PageWrapper>
         )
     }

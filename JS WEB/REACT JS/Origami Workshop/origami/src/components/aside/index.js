@@ -11,13 +11,6 @@ const Aside = () => {
             {
                 links.map(l => <Link key={l.title} href={l.link} value={l.title} type="aside" />)
             }
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
-            <Link href={"#"} value={'#######'} type="aside" />
         </aside>
     )
 }
