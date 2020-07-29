@@ -15,5 +15,8 @@
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
+    },
+    "scripts": {
+        "start": "nodemon ./REST API/index.js"
     }
 }

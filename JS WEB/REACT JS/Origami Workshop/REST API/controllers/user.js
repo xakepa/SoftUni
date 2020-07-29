@@ -4,16 +4,21 @@ const utils = require('../utils');
 
 module.exports = {
     get: (req, res, next) => {
-        models.User.find()
-            .then((users) => res.send(users))
-            .catch(next)
+
+        models.User.findById(req.query.id)
+            .then((user) => res.send(user))
+            .catch((err) => res.status(500).send("Error"))
     },
 
     post: {
         register: (req, res, next) => {
             const { username, password } = req.body;
             models.User.create({ username, password })
-                .then((createdUser) => res.send(createdUser))
+                .then((createdUser) => {
+                    const token = utils.jwt.createToken({ id: createdUser._id })
+                    res.header('Authorization', token).send(createdUser)
+                    return res.send(createdUser)
+                })
                 .catch(next)
         },
 
@@ -28,7 +33,7 @@ module.exports = {
                     }
 
                     const token = utils.jwt.createToken({ id: user._id });
-                    res.cookie(config.authCookieName, token).send(user);
+                    res.header('Authorization', token).send(user);
                 })
                 .catch(next);
         },
