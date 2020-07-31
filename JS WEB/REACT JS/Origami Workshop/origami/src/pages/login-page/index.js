@@ -3,6 +3,7 @@ import SubmitButton from '../../components/button/submit-button'
 import Input from '../../components/input'
 import PageWrapper from '../../components/page-wrapper'
 import Title from '../../components/title'
+import UserContext from '../../Context'
 import authenticate from '../../utils/authenticate'
 import styles from './index.module.css'
 
@@ -14,6 +15,8 @@ class LoginPage extends React.Component {
         rePassword: ''
     }
 
+    static contextType = UserContext
+
     handleChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
@@ -24,9 +27,13 @@ class LoginPage extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const { username, password } = this.state
+        console.log(this.context)
+
         await authenticate('http://localhost:9999/api/user/login', {
             username, password
-        }, () => {
+        }, (user) => {
+            console.log('It works')
+            this.context.logIn(user)
             this.props.history.push('/')
         }, (e) => {
             console.log('Error', e)

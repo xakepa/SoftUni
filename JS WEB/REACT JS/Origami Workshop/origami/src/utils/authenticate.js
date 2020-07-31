@@ -16,8 +16,10 @@ const authenticate = async (url, body, onSucces, onFail) => {
         const response = await data.json()
 
         if (response.username && authToken) {
-            onSucces()
-            this.props.history.push('/')
+            onSucces({
+                username: response.username,
+                id: response._id
+            })
         } else {
             onFail()
         }
