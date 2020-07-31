@@ -27,12 +27,11 @@ class LoginPage extends React.Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         const { username, password } = this.state
-        console.log(this.context)
 
         await authenticate('http://localhost:9999/api/user/login', {
             username, password
         }, (user) => {
-            console.log('It works')
+
             this.context.logIn(user)
             this.props.history.push('/')
         }, (e) => {
