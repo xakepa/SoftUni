@@ -17,7 +17,7 @@ class LoginPage extends React.Component {
 
     static contextType = UserContext
 
-    handleChange = (event, type) => {
+    onChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
 
@@ -49,14 +49,14 @@ class LoginPage extends React.Component {
 
                     <Input
                         value={username}
-                        onChange={(e) => { this.handleChange(e, 'username') }}
+                        onChange={(e) => { this.onChange(e, 'username') }}
                         label='Username'
                         id='username'
                     />
                     <Input
                         type='password'
                         value={password}
-                        onChange={(e) => this.handleChange(e, 'password')}
+                        onChange={(e) => this.onChange(e, 'password')}
                         label="Password"
                         id="password"
                     />
