@@ -6,9 +6,9 @@ class Input extends React.Component {
         value: ''
     }
 
-    updateValue = (evenet) => {
+    updateValue = (event) => {
         this.setState({
-            value: evenet.target.value
+            value: event.target.value
         })
     }
 

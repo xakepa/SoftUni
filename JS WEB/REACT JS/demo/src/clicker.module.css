@@ -1,0 +1,30 @@
+.submit {
+    background-color: green;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    border:none;
+    margin-top: 2.5%;
+}
+
+.submit:hover{
+    border: none;
+    background-color: #4CAF50;
+}
+
+.click {
+    background-color: orange;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    border:none;
+    margin-top: 2.5%;
+}
