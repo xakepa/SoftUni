@@ -2,16 +2,20 @@ import React from 'react';
 import PageWrapper from '../../components/page-wrapper';
 import Title from '../../components/title';
 import Ogiramies from '../../components/origamies'
+import UserContext from '../../Context';
 
-const HomePage = () => {
+class HomePage extends React.Component {
+  static contextType = UserContext
 
-  return (
-    <PageWrapper>
-      <Title title='Publications' />
-      <Ogiramies />
-    </PageWrapper>
-  )
+  render() {
 
+    return (
+      <PageWrapper>
+        <Title title='Publications' />
+        <Ogiramies />
+      </PageWrapper>
+    )
+  }
 }
 
 export default HomePage

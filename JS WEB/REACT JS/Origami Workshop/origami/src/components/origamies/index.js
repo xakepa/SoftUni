@@ -33,7 +33,6 @@ class Origamies extends React.Component {
             <div className={styles[`posts-wrapper`]}>
                 {this.renderOrigami()}
             </div>
-
         )
     }
 }

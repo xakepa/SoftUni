@@ -4,6 +4,8 @@ import Input from '../../components/input'
 import PageWrapper from '../../components/page-wrapper'
 import Title from '../../components/title'
 import styles from './index.module.css'
+import authenticate from '../../utils/authenticate'
+import UserContext from '../../Context'
 
 class RegisterPage extends React.Component {
 
@@ -13,6 +15,8 @@ class RegisterPage extends React.Component {
         rePassword: ''
     }
 
+    static contextType = UserContext
+
     onChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
@@ -20,34 +24,19 @@ class RegisterPage extends React.Component {
         this.setState(newState)
     }
 
+
     handleSubmit = async (event) => {
         event.preventDefault()
-        const { username, password } = this.state
+        const { username, password, rePassword } = this.state
 
-        try {
-            const data = await fetch('http://localhost:9999/api/user/register', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,
-                    password
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const authToken = data.headers.get('Authorization')
-            document.cookie = `jwt-token=${authToken}`
-
-            const response = await data.json()
-
-            if (response.username && authToken) {
-                this.props.history.push('/')
-            }
-
-        } catch (error) {
-            console.error(error)
-        }
+        await authenticate('http://localhost:9999/api/user/register', {
+            username, password, rePassword
+        }, (user) => {
+            this.context.logIn(user)
+            this.props.history.push('/')
+        }, (e) => {
+            console.log('Error', e)
+        })
     }
     render() {
 

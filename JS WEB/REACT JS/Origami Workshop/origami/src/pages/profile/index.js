@@ -1,8 +1,9 @@
 import React from 'react'
 import PageWrapper from '../../components/page-wrapper'
 import Origamies from '../../components/origamies'
-class Profile extends React.Component {
+import UserContext from '../../Context'
 
+class Profile extends React.Component {
     constructor(props) {
         super(props)
 
@@ -12,8 +13,9 @@ class Profile extends React.Component {
         }
     }
 
+    static contextType = UserContext
+
     componentDidMount() {
-        console.log(this.props.match);
         this.getUser(this.props.match.params.userid)
     }
 
@@ -31,18 +33,20 @@ class Profile extends React.Component {
         })
     }
 
+    logOut = () => {
+        this.context.logOut()
+        this.props.history.push('/')
+    }
+
     render() {
         const { username, posts } = this.state
 
         return (
             <PageWrapper>
                 <div>
-                    <p>
-                        User: {username}
-                    </p>
-                    <p>
-                        Posts: {posts}
-                    </p>
+                    <p>User: {username}</p>
+                    <p>Posts: {posts}</p>
+                    <button onClick={this.logOut}>Logout</button>
                 </div>
                 <Origamies length={3} />
             </PageWrapper>

@@ -3,6 +3,8 @@ import SubmitButton from '../../components/button/submit-button'
 import Input from '../../components/input'
 import PageWrapper from '../../components/page-wrapper'
 import Title from '../../components/title'
+import UserContext from '../../Context'
+import authenticate from '../../utils/authenticate'
 import styles from './index.module.css'
 
 class LoginPage extends React.Component {
@@ -13,7 +15,9 @@ class LoginPage extends React.Component {
         rePassword: ''
     }
 
-    handleChange = (event, type) => {
+    static contextType = UserContext
+
+    onChange = (event, type) => {
         const newState = {}
         newState[type] = event.target.value
 
@@ -24,31 +28,15 @@ class LoginPage extends React.Component {
         event.preventDefault()
         const { username, password } = this.state
 
-        try {
-            const data = await fetch('http://localhost:9999/api/user/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,
-                    password
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+        await authenticate('http://localhost:9999/api/user/login', {
+            username, password
+        }, (user) => {
 
-            const authToken = data.headers.get('Authorization')
-            document.cookie = `jwt-token=${authToken}`
-
-            const response = await data.json()
-
-            if (response.username && authToken) {
-                this.props.history.push('/')
-            }
-
-        } catch (error) {
-            console.error(error)
-        }
-
+            this.context.logIn(user)
+            this.props.history.push('/')
+        }, (e) => {
+            console.log('Error', e)
+        })
     }
 
     render() {
@@ -61,14 +49,14 @@ class LoginPage extends React.Component {
 
                     <Input
                         value={username}
-                        onChange={(e) => { this.handleChange(e, 'username') }}
+                        onChange={(e) => { this.onChange(e, 'username') }}
                         label='Username'
                         id='username'
                     />
                     <Input
                         type='password'
                         value={password}
-                        onChange={(e) => this.handleChange(e, 'password')}
+                        onChange={(e) => this.onChange(e, 'password')}
                         label="Password"
                         id="password"
                     />

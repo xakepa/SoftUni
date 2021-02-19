@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.module.css';
 import logo from '../../images/blue-origami-bird.png';
 
-const SingleOrigami = ({ description, author, index }) => {
+const SingleOrigami = ({ description, index }) => {
     return (
         <div className={styles.container}>
             <img className={styles[`origami-image`]} src={logo} alt="Logo" />
@@ -13,7 +13,7 @@ const SingleOrigami = ({ description, author, index }) => {
             <div>
                 <span className={styles.user}>
                     <small>Author: </small>
-                    {author.username}
+                    {/* {author.username} */}
                 </span>
             </div>
         </div>
